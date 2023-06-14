@@ -1,7 +1,10 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import Image from 'next/image'
+import { Mukta } from 'next/font/google'
+import { Playfair_Display } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const mukta = Mukta({ weight: '300', subsets: ['latin'] })
+const pfDisplay = Playfair_Display({ weight: '400', subsets: ['latin'] })
 
 export const metadata = {
   title: 'Create Next App',
@@ -13,9 +16,62 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const navMenuItems = [
+    {
+      text: 'Anasayfa',
+      iconSrc: '/icons/sparkles.svg',
+    },
+    {
+      text: 'Hakkında'
+    },
+    {
+      text: 'Hizmetler'
+    },
+    {
+      text: 'Davalar'
+    },
+    {
+      text: 'SSS'
+    },
+    {
+      text: 'İletişim'
+    },
+  ];
+
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="tr">
+      <body className={mukta.className}>
+        <div className="flex">
+          <div className={ pfDisplay.className + ' h-screen w-max bg-secondary min-w-[230px]' }>
+            <div className="p-8 text-center">
+              <h1 className="text-primary text-4xl mb-2 tracking-wider">ALTU</h1>
+              <h2 className="text-textPrimary text-sm tracking-[0.3rem] uppercase">Hukuk Bürosu</h2>
+            </div>
+            <div className="p-8">
+              <ul className="text-textPrimary">
+                {
+                  navMenuItems.map(menuItem => (
+                    <li className="flex align-center mb-2 cursor-pointer hover:text-primary">
+                      <Image
+                        src="/icons/sparkles.svg"
+                        width={12}
+                        height={12}
+                        alt={menuItem.text}
+                      />
+                      <span className="ml-2 text-lg">{menuItem.text}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <div className="p-8">
+              <div className="text-primary text-sm tracking-widest uppercase pb-2">Bizi Arayın (24/7)</div>
+              <div className={ mukta.className + ' text-textPrimary text-2xl' }>(232) 667 67 67</div>
+            </div>
+          </div>
+          <div className="w-full h-screen">{children}</div>
+        </div>
+      </body>
     </html>
   )
 }

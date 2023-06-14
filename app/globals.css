@@ -2,26 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+.jtron {
+  background-image: url(/pxfuel.jpg);
+  background-size: cover;
+  background-position: center;
+  /* background-color: red; */
+  transition: background 1s linear;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.jtron:hover {
+  background-image: url(/pxfuel-2.jpg);
+  /* background-color: blue; */
+}
+
+.anm {
+  animation: slideUp 1s;
+}
+
+@keyframes slideUp {
+  100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    opacity: 1;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  0% {
+    transform: translateY(100%);
+    opacity: .8;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
 }
