@@ -3,32 +3,71 @@
 @tailwind utilities;
 
 
+:root {
+  --sidebar-width: 320px;
+}
+
 .jtron {
-  background-image: url(/pxfuel.jpg);
+  /* background-image: url(/pxfuel.jpg); */
   background-size: cover;
   background-position: center;
-  /* background-color: red; */
   transition: background 1s linear;
 }
 
-.jtron:hover {
-  background-image: url(/pxfuel-2.jpg);
-  /* background-color: blue; */
+.anm {
+  animation-name: slideUp;
+  animation-duration: 1s;
+  animation-delay: 0;
+  animation-iteration-count: 1;
 }
 
-.anm {
-  animation: slideUp 1s;
+body {
+  /* background-image: url(/pardon.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; */
 }
 
 @keyframes slideUp {
   100% {
-    transform: translateY(0);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    transform: translateY(0%);
     opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
   0% {
     transform: translateY(100%);
-    opacity: .8;
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    transform-origin: bottom;
+    opacity: 0;
+  }
+}
+
+#sidebar {
+  width: var(--sidebar-width);
+  transition: transform 500ms;
+  transform: translateX(0);
+}
+
+#page-content {
+  transition: margin 500ms;
+  margin-left: var(--sidebar-width);
+}
+
+@media only screen and (max-width: 766px) {
+  aside#sidebar {
+    transform: translateX(-100%);
+  }
+
+  #page-content {
+    margin-left: 0;
+  }
+
+  .mobile-visible aside#sidebar {
+    transform: translateX(0);
+  }
+
+  .mobile-visible aside#sidebar ~ #page-content {
+    margin-left: var(--sidebar-width);
   }
 }

@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
 const colors = require('tailwindcss/colors')
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   content: [
@@ -14,14 +16,29 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      zIndex: {
+        '1': '1',
+        '2': '2',
+        '3': '3',
+      },
     },
     colors: {
       ...colors,
-      primary: '#c29032',
+      primary: '#EEB854',
       secondary: '#1b1b1b',
       textPrimary: '#999',
       white: '#fff',
+      backGray: '#f4f4f4',
+    },
+    screens: {
+      ...defaultTheme.screens,
+      'sm': { max: '766px' },
+      'md': { min: '767px' }
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function({ addVariant }) {
+      addVariant('mobile-visible', '.mobile-visible &')
+    })
+  ],
 }
