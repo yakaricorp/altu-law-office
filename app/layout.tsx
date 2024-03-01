@@ -1,11 +1,9 @@
 import './globals.css'
-import { Mukta } from 'next/font/google'
 import Sidebar from '@/ui/components/sidebar'
 
 import type { ReactNode } from 'react'
 import type { Metadata } from "next"
-
-const mukta = Mukta({ weight: '300', subsets: ['latin'] })
+import { font_mukta } from '@/ui/fonts'
 
 export const metadata: Metadata = {
   title: 'Altu',
@@ -21,7 +19,7 @@ export default function RootLayout({
 
   return (
     <html lang={HTML_LANG}>
-      <body className={mukta.className}>
+      <body className={font_mukta.className}>
         <Sidebar />
         <div id="page-content" className="z-1">
           {children}

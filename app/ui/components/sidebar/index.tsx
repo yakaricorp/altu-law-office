@@ -1,6 +1,5 @@
 // import { Playfair_Display } from 'next/font/google'
 import SidebarDesktop from '@/ui/components/sidebar/sidebar-desktop'
-import SidebarMobile from '@/ui/components/sidebar/sidebar-mobile'
 import type { SidebarMenuItem } from '@/lib/definitions'
 
 import { randomUUID } from 'crypto'

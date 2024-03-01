@@ -24,11 +24,12 @@ module.exports = {
     },
     colors: {
       ...colors,
-      primary: '#EEB854',
+      primary: '#DEB941',
       secondary: '#1b1b1b',
       textPrimary: '#999',
       white: '#fff',
       backGray: '#f4f4f4',
+      grayVar1: 'rgba(255, 255, 255, 0.1)',
     },
     screens: {
       ...defaultTheme.screens,
@@ -39,6 +40,7 @@ module.exports = {
   plugins: [
     plugin(function({ addVariant }) {
       addVariant('mobile-visible', '.mobile-visible &')
+      addVariant('parent-hover', '.parent-hover:hover &')
     })
   ],
 }

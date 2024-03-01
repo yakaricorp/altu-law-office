@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useState, useRef } from "react"
+import { useRef } from "react"
 import {
   GoogleMap,
   OverlayViewF,
@@ -9,9 +9,8 @@ import {
 } from "@react-google-maps/api"
 import { MapProvider } from "@/ui/components/map/map-ref-provider"
 import AddressControl from "@/ui/components/map/address-control"
-import { Playfair_Display } from "next/font/google"
-
-const pfDisplay = Playfair_Display({ weight: '400', subsets: ['latin'] })
+import { font_playfair } from "@/ui/fonts"
+import classNames from "classnames"
 
 export default function Map() {
   const mapRef = useRef<GoogleMap>(null)
@@ -74,7 +73,10 @@ export default function Map() {
         onLoad={onLoadedOverlay}
         onUnmount={onUnmountOverlay}
       >
-        <div className={ 'scale-50 shadow-xl shadow-neutral-800 bg-secondary text-center p-2 ' + pfDisplay.className }>
+        <div className={classNames([
+          font_playfair.className,
+          'scale-50 shadow-xl shadow-neutral-800 bg-secondary text-center p-2'
+        ])}>
           <h1 className="text-primary text-4xl tracking-wider mb-1">ALTU</h1>
           <h1 className="text-textPrimary text-sm tracking-[0.3rem]">HUKUK BUROSU</h1>
         </div>
