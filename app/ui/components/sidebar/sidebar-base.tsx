@@ -1,41 +1,40 @@
 'use client'
 
-import Image from 'next/image'
-import { SidebarMenuItem } from '@/lib/definitions'
-import { Mukta } from 'next/font/google'
-import { Playfair_Display } from 'next/font/google'
+import classNames from 'classnames'
+import SidebarContactSection from './contact-section'
+import StarSvg from '@/ui/icons/star.svg'
+import { font_playfair } from '@/ui/fonts'
 
-const pfDisplay = Playfair_Display({ weight: '400', subsets: ['latin'] })
-const mukta = Mukta({ weight: '300', subsets: ['latin'] })
+import type { SidebarMenuItem } from '@/lib/definitions'
 
 export const render = ({ menuItems }: { menuItems: SidebarMenuItem[] }): JSX.Element => {
+  const ICON_SIZE = 10
+
   return (
-    <div className={`${pfDisplay.className} h-screen bg-secondary fixed z-3 w-[320px]`}>
-      <div className="p-8 text-center">
+    <div className={classNames([
+      font_playfair.className,
+      'bg-secondary h-[100%]',
+    ])}>
+      <div className="px-8 py-12 text-center">
         <h1 className="text-primary text-4xl mb-2 tracking-wider">ALTU</h1>
-        <h2 className="text-textPrimary text-sm tracking-[0.3rem] uppercase">Hukuk Bürosu</h2>
+        <h2 className="text-textPrimary text-xl tracking-widest uppercase">Hukuk Bürosu</h2>
       </div>
-      <div className="p-8">
+      <div className="px-8">
         <ul className="text-textPrimary">
           {
             menuItems.map(menuItem => (
-              <li key={menuItem.key} className="flex align-center mb-2 cursor-pointer hover:text-primary">
-                <Image
-                  src="/icons/sparkles.svg"
-                  width={12}
-                  height={12}
-                  alt={menuItem.text}
-                />
-                <span className="ml-2 text-lg">{menuItem.text}</span>
+              <li key={menuItem.key} className="flex items-center mb-3 cursor-pointer hover:text-primary">
+                <StarSvg
+                  width={ICON_SIZE}
+                  height={ICON_SIZE}
+                ></StarSvg>
+                <span className="ml-2 tracking-wider">{menuItem.text}</span>
               </li>
             ))
           }
         </ul>
       </div>
-      <div className="p-8">
-        <div className="text-primary text-sm tracking-widest uppercase pb-2">Bizi Arayın (24/7)</div>
-        <div className={ mukta.className + ' text-textPrimary text-2xl' }>(232) 667 67 67</div>
-      </div>
+      <SidebarContactSection />
     </div>
   )
 }
