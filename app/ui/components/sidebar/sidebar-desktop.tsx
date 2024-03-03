@@ -1,7 +1,7 @@
 'use client'
 
 import * as sidebarBase from './sidebar-base'
-import ShowHideButton from './sidebar-mobile/show-hide-button'
+import ShowHideButton from './show-hide-button'
 import type { SidebarMenuItem } from '@/lib/definitions'
 
 type Props = {

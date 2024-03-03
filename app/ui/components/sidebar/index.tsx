@@ -7,55 +7,40 @@ import { randomUUID } from 'crypto'
 // const pfDisplay = Playfair_Display({ weight: '400', subsets: ['latin'] })
 
 export default function Sidebar() {
-  console.log('Render sidebar')
-
   const navMenuItems: SidebarMenuItem[] = [
     {
       key: randomUUID(),
-      text: 'Anasayfa'
+      text: 'Anasayfa',
+      route: '/',
     },
     {
       key: randomUUID(),
-      text: 'Hakkında'
+      text: 'Hakkında',
+      route: '/about',
     },
     {
       key: randomUUID(),
-      text: 'Hizmetler'
+      text: 'Hizmetler',
+      route: '/',
     },
     {
       key: randomUUID(),
-      text: 'Davalar'
+      text: 'Davalar',
+      route: '/',
     },
     {
       key: randomUUID(),
-      text: 'SSS'
+      text: 'SSS',
+      route: '/',
     },
     {
       key: randomUUID(),
-      text: 'İletişim'
+      text: 'İletişim',
+      route: '/',
     },
-  ]
-
-  const desktop = [
-    {
-      key: 'sad',
-      text: 'Desktop'
-    },
-    ...navMenuItems
-  ]
-
-  const mobile = [
-    {
-      key: 'das',
-      text: 'Mobile'
-    },
-    ...navMenuItems
   ]
 
   return (
-    <>
-      <SidebarDesktop menuItems={desktop}></SidebarDesktop>
-      {/* <SidebarMobile menuItems={mobile}></SidebarMobile> */}
-    </>
+    <SidebarDesktop menuItems={navMenuItems}></SidebarDesktop>
   )
 }

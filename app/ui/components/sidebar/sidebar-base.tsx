@@ -1,9 +1,10 @@
 'use client'
 
 import classNames from 'classnames'
+import Link from 'next/link'
 import SidebarContactSection from './contact-section'
 import StarSvg from '@/ui/icons/star.svg'
-import { font_playfair } from '@/ui/fonts'
+import { font_mukta, font_playfair } from '@/ui/fonts'
 
 import type { SidebarMenuItem } from '@/lib/definitions'
 
@@ -16,8 +17,11 @@ export const render = ({ menuItems }: { menuItems: SidebarMenuItem[] }): JSX.Ele
       'bg-secondary h-[100%]',
     ])}>
       <div className="px-8 py-12 text-center">
-        <h1 className="text-primary text-4xl mb-2 tracking-wider">ALTU</h1>
-        <h2 className="text-textPrimary text-xl tracking-widest uppercase">Hukuk Bürosu</h2>
+        <h1 className="text-primary text-6xl mb-2 tracking-wider">ALTU</h1>
+        <h2 className={classNames([
+          font_mukta.className,
+          'text-textPrimary font-thin text-xl tracking-widest uppercase'
+        ])}>Hukuk Bürosu</h2>
       </div>
       <div className="px-8">
         <ul className="text-textPrimary">
@@ -28,7 +32,9 @@ export const render = ({ menuItems }: { menuItems: SidebarMenuItem[] }): JSX.Ele
                   width={ICON_SIZE}
                   height={ICON_SIZE}
                 ></StarSvg>
-                <span className="ml-2 tracking-wider">{menuItem.text}</span>
+                <Link href={menuItem.route}>
+                  <span className="ml-2 tracking-wider text-lg">{menuItem.text}</span>
+                </Link>
               </li>
             ))
           }
