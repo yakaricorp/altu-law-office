@@ -40,15 +40,15 @@ export default function SidebarContactSection() {
   ])}>
     <ContactSectionItem
       icon={<PhoneSvg/>}
-      text={'543 543 43 43'}
+      text={'Av. Mehmet Aldemir'}
       textClasses="text-xl"
-      hoverText="Av. Mehmet Aldemir"
+      hoverText="Mesaj Gonder"
     />
     <ContactSectionItem
       icon={<PhoneSvg/>}
-      text={'555 555 55 55'}
+      text={'Av. Asil Tuna'}
       textClasses="text-xl"
-      hoverText="Av. Asil Tuna"
+      hoverText="Mesaj Gonder"
     />
     <ContactSectionItem
       icon={<MailSvg/>}

@@ -1,7 +1,6 @@
 'use client'
 
 import 'animate.css'
-import Image from 'next/image'
 import classNames from 'classnames'
 import { useState } from "react";
 import { font_playfair } from '@/ui/fonts'
@@ -31,7 +30,7 @@ export default function IconHeaderWithSlidingText() {
       <div>
         <div className={'transition-all ' + imageClasses.join(' ')}>
           <BriefcaseSvg
-            className="mx-auto"
+            className="mx-auto text-primary"
             width={58}
             height={58}
             alt="briefcase"
