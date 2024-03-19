@@ -3,8 +3,8 @@ import classNames from 'classnames'
 import { font_mukta, font_playfair } from '@/ui/fonts'
 
 type Props = {
-  header: string
-  subHeader: string
+  header?: string
+  subHeader?: string
   className?: string
   children?: ReactNode
 }
@@ -30,7 +30,7 @@ export default function Section({ header, subHeader, className, children }: Prop
           { subHeader }
         </h2>
       }
-      <div className="mt-12">
+      <div className="pt-12">
         { children }
       </div>
     </section>
