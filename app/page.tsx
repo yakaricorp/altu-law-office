@@ -1,11 +1,11 @@
 import JumboOverlay from "@/ui/homepage/jumbo-overlay"
-import HomepageSection from "@/ui/homepage/homepage-section"
+import SectionsContainer from "@/ui/homepage/sections-container"
 
 export default function Home() {
   return (
     <main>
       <JumboOverlay></JumboOverlay>
-      <HomepageSection></HomepageSection>
+      <SectionsContainer></SectionsContainer>
     </main>
   )
 }

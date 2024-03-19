@@ -40,7 +40,7 @@ export const render = ({ menuItems }: { menuItems: SidebarMenuItem[] }): JSX.Ele
           }
         </ul>
       </div>
-      <SidebarContactSection />
+      {/* <SidebarContactSection /> */}
     </div>
   )
 }

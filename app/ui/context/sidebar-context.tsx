@@ -15,8 +15,6 @@ type Props = {
 }
 
 export default function SidebarContextProvider({ onStateChanged, children }: Props) {
-  console.log('Render sidebar-context');
-
   const [isMobileSidebarVisible, setMobileSidebarVisible]
     = useState(false)
 

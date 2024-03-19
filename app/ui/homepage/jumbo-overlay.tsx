@@ -81,7 +81,7 @@ export default function JumboOverlay() {
       <div className="absolute bg-white px-12 py-10 mx-6 my-6 bottom-0 max-w-lg min-w-min anm" key={currentItem.key}>
         <h2 className={pfDisplay.className + ' text-2xl mb-3 mobile-visible:whitespace-pre'}>{ currentItem.title }</h2>
         <p className="text-md text-gray-600 mb-6">{ currentItem.description }</p>
-        <Button></Button>
+        <Button label="Click here"></Button>
       </div>
     </div>
   )
