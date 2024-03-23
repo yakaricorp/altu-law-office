@@ -100,3 +100,21 @@ body {
 .page-section-slide-in h2 {
   animation-duration: 1.2s;
 }
+
+.bottom-arrow {
+  border-width: 5px;
+  border-style: solid;
+}
+
+.bottom-arrow:after {
+  content:'';
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 0;
+  height: 0;
+  border-top: 20px solid black;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
