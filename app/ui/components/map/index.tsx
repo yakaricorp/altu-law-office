@@ -9,7 +9,7 @@ import {
 } from "@react-google-maps/api"
 import { MapProvider } from "@/ui/components/map/map-ref-provider"
 import AddressControl from "@/ui/components/map/address-control"
-import { font_playfair } from "@/ui/fonts"
+import { font_playfair, font_mukta } from "@/ui/fonts"
 import classNames from "classnames"
 
 export default function Map() {
@@ -51,8 +51,8 @@ export default function Map() {
         height: '400px'
       }}
       center={{
-        lat: 38.47909,
-        lng: 27.19439
+        lat: 38.4228558,
+        lng: 27.1415766
       }}
       zoom={18}
       options={{
@@ -65,8 +65,8 @@ export default function Map() {
     >
       <OverlayViewF
         position={{
-          lat: 38.47909,
-          lng: 27.19439
+          lat: 38.4228558,
+          lng: 27.1415766
         }}
         mapPaneName={OVERLAY_MOUSE_TARGET}
         getPixelPositionOffset={centerOverlayView}
@@ -74,11 +74,15 @@ export default function Map() {
         onUnmount={onUnmountOverlay}
       >
         <div className={classNames([
-          font_playfair.className,
-          'scale-50 shadow-xl shadow-neutral-800 bg-secondary text-center p-2'
+          font_mukta.className,
+          'relative rounded-lg bg-secondary text-center p-2 px-4'
         ])}>
-          <h1 className="text-primary text-4xl tracking-wider mb-1">ALTU</h1>
-          <h1 className="text-textPrimary text-sm tracking-[0.3rem]">HUKUK BUROSU</h1>
+          <h1 className={classNames([
+            font_playfair.className,
+            "text-primary font-bold text-xl tracking-wide mb-1"
+          ])}>ALTU</h1>
+          <h1 className="text-textPrimary text-sm">HUKUK BUROSU</h1>
+          <div className="bottom-arrow border-black"></div>
         </div>
       </OverlayViewF>
       <MapProvider value={mapRef}>

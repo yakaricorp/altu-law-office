@@ -67,9 +67,11 @@ export default function HomepageSection() {
       <MilestoneBanner></MilestoneBanner>
 
       <div>
-        <div className="px-10 py-16 flex flex-wrap gap-8">
-          <Map></Map>
-        </div>
+        <Section header="Get In Touch" subHeader="Contact Us" className="py-16">
+          <div className="">
+            <Map></Map>
+          </div>
+        </Section>
       </div>
     </>
   )
