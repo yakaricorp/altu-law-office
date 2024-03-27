@@ -26,7 +26,7 @@ export default function IconHeaderWithSlidingText() {
   }
 
   return (
-    <div className="transition-all border-b-4 border-white hover:border-b-4 hover:border-primary overflow-clip bg-white pt-12 pb-6 px-8 max-w-md cursor-default" onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
+    <div className="transition-all border-b-4 border-white hover:border-b-4 hover:border-primary overflow-clip bg-white pt-12 pb-4 px-4 max-w-sm cursor-default" onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
       <div>
         <div className={'transition-all ' + imageClasses.join(' ')}>
           <BriefcaseSvg
