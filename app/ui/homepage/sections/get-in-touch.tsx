@@ -47,7 +47,7 @@ export default function GetInTouch() {
             }
           </ul>
           <div className="flex-1">
-            <h1 className={classNames([font_playfair.className, 'mb-4 text-2xl'])}>Don't hesitate to ask</h1>
+            <h1 className={classNames([font_playfair.className, 'mb-4 text-2xl'])}>{'Don\'t hesitate to ask'}</h1>
             <p className="mb-4">Law is complicate matter. It can cause you a big problem if you ignore it. Let us help you!</p>
             <SendMessageForm></SendMessageForm>
           </div>
