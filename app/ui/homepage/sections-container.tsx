@@ -8,6 +8,7 @@ import Section from "@/ui/components/section"
 import ContactAboutUs from "./sections/contact-about-us"
 import MilestoneBanner from "./sections/milestone-banner"
 import OurTeamOverview from "./sections/our-team-overview"
+import GetInTouch from "./sections/get-in-touch"
 
 const CLASSNAME_SECTION = 'page-section'
 const CLASSNAME_SECTION_ANIMATE = 'page-section-slide-in'
@@ -50,29 +51,23 @@ export default function HomepageSection() {
         </Section>
       </div>
 
+      <div className="bg-backGray">
+        <Section header="Hello world" subHeader="Header" className="py-16">
+          <div className="flex flex-wrap justify-center gap-8">
+            <IconHeaderWithSlidingText />
+            <IconHeaderWithSlidingText />
+            <IconHeaderWithSlidingText />
+          </div>
+        </Section>
+      </div>
+
       <ContactAboutUs></ContactAboutUs>
 
       <OurTeamOverview></OurTeamOverview>
 
-      <div className="bg-backGray">
-        <Section header="Hello world" subHeader="Header" className="py-16">
-          <div className="flex flex-wrap gap-8">
-            <IconHeaderWithSlidingText />
-            <IconHeaderWithSlidingText />
-            <IconHeaderWithSlidingText />
-          </div>
-        </Section>
-      </div>
-
       <MilestoneBanner></MilestoneBanner>
 
-      <div>
-        <Section header="Get In Touch" subHeader="Contact Us" className="py-16">
-          <div className="">
-            <Map></Map>
-          </div>
-        </Section>
-      </div>
+      <GetInTouch></GetInTouch>
     </>
   )
 }

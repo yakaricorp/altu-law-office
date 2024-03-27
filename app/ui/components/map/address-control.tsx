@@ -29,11 +29,11 @@ export default function AddressControl(
 
   return createPortal((
     <div className="bg-white flex p-3 m-2 shadow-md text-[0.9rem]">
-      <p className="max-w-[260px]">
-        <div><strong>ALTU Hukuk Burosu</strong></div>
-        <div>İsmet Kaptan Mh. 1367 Sk. No:2 Kat:7 Daire:704 İkbal 2 İş Merkezi</div>
-        <div>Konak/İzmir</div>
-      </p>
+      <div className="max-w-[260px]">
+        <p><strong>ALTU Hukuk Burosu</strong></p>
+        <p>İsmet Kaptan Mh. 1367 Sk. No:2 Kat:7 Daire:704 İkbal 2 İş Merkezi</p>
+        <p>Konak/İzmir</p>
+      </div>
       <div className="text-[#619DE5] text-center self-center cursor-pointer hover:underline">
         <ExternalLinkSvg width={22} height={22} className="inline mb-1"></ExternalLinkSvg>
         <div>Directions</div>
