@@ -1,10 +1,10 @@
 import { ChangeEvent, useState } from "react"
 
-function useInput<T = HTMLInputElement | HTMLTextAreaElement>(initialValue: string) {
+function useInput<T extends (HTMLInputElement | HTMLTextAreaElement)>(initialValue: string) {
   const [value, setValue] = useState(initialValue)
   // const [error, setError] = useState(false)
 
-  function handleChange(e: ChangeEvent<T>) {
+  function handleChange(e: ChangeEvent<T>): void {
     setValue(e.target.value)
   }
 

@@ -13,6 +13,7 @@ export type InputPropTypes<T> = {
   label?: string;
   placeholder?: string;
   className?: string;
+  maxLength?: number;
 }
 
 

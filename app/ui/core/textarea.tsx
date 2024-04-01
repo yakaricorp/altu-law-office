@@ -18,6 +18,7 @@ export default function TextArea({
   label,
   placeholder,
   className,
+  maxLength,
 }: Props) {
   const inputId = useId()
 
@@ -33,6 +34,7 @@ export default function TextArea({
         onChange={onChange}
         rows={rows}
         cols={cols}
+        maxLength={maxLength}
       />
     </div>
   )
