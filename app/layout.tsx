@@ -4,6 +4,7 @@ import Sidebar from '@/ui/components/sidebar'
 import type { ReactNode } from 'react'
 import type { Metadata } from "next"
 import { font_mukta } from '@/ui/fonts'
+import Footer from '@/ui/components/footer'
 
 export const metadata: Metadata = {
   title: 'Altu',
@@ -23,6 +24,7 @@ export default function RootLayout({
         <Sidebar />
         <div id="page-content" className="z-1">
           {children}
+          <Footer></Footer>
         </div>
       </body>
     </html>

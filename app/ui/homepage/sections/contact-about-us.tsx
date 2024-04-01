@@ -39,7 +39,7 @@ export default function ContactAboutUs() {
           <Button label="Contact"></Button>
         </div>
       </div>
-      <div className="bg-backGray flex-1 px-12 py-32">
+      <div className="bg-alternate flex-1 px-12 py-32">
         <h6 className={classNames([
           'text-3xl mb-6',
           font_playfair.className,

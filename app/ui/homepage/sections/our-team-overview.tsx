@@ -47,14 +47,14 @@ export default function OurTeamOverview() {
   const attorneys = [
     {
       imageUri: '/attorney-2.JPG',
-      fullname: 'Mehmet Aldemir',
-      jobTitle: 'Founder, Attorney',
+      fullname: 'Av. Mehmet Aldemir',
+      jobTitle: 'Founder',
       description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum, expedita. Explicabo omnis odio illum molestias dolor magni tempora eius iste maiores commodi nesciunt, facilis sunt consectetur nam autem, quasi quo.',
     },
     {
       imageUri: '/attorney-1.jpeg',
-      fullname: 'Asil Tuna',
-      jobTitle: 'Founder, Attorney',
+      fullname: 'Av. Asil Tuna',
+      jobTitle: 'Founder',
       description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum, expedita. Explicabo omnis odio illum molestias dolor magni tempora eius iste maiores commodi nesciunt, facilis sunt consectetur nam autem, quasi quo.',
     }
   ]
