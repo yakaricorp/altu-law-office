@@ -1,5 +1,4 @@
-import type { ChangeEvent, FormEvent } from "react"
-import { useState } from "react"
+import type { FormEvent } from "react"
 import classNames from "classnames"
 
 import Input from "@/ui/core/input"
@@ -46,7 +45,13 @@ export default function SendMessageForm({ className }: Props) {
         ></Input>
       </div>
       <div className="my-4">
-        <TextArea rows={7} value={message} onChange={onChangeMessage} placeholder="Message"></TextArea>
+        <TextArea
+          placeholder="Message"
+          rows={5}
+          maxLength={300}
+          value={message}
+          onChange={onChangeMessage}
+        ></TextArea>
       </div>
       <div className="text-right">
         <Button type="submit" label="Send" className="px-16"></Button>

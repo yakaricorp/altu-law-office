@@ -17,6 +17,7 @@ export default function Input({
   label,
   placeholder,
   className,
+  maxLength,
 }: Props) {
   const inputId = useId()
 
@@ -31,6 +32,7 @@ export default function Input({
         disabled={disabled}
         placeholder={placeholder}
         onChange={onChange}
+        maxLength={maxLength}
       />
     </div>
   )
