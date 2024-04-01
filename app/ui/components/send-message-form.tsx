@@ -54,7 +54,7 @@ export default function SendMessageForm({ className }: Props) {
         ></TextArea>
       </div>
       <div className="text-right">
-        <Button type="submit" label="Send" className="px-16"></Button>
+        <Button type="submit" label="Send" className="px-20"></Button>
       </div>
     </form>
   )

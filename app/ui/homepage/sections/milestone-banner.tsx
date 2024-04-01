@@ -32,7 +32,7 @@ function MilestoneBannerItem({ icon, text, subText }: ItemProps) {
 
 export default function MilestoneBanner() {
   return (
-    <ul className="flex align-center justify-center px-8 py-16 bg-alternate gap-16 sm:flex-wrap">
+    <ul className="flex align-center justify-center px-8 py-16 gap-16 sm:flex-wrap bg-gradient-to-b from-white to-alternate">
       <MilestoneBannerItem
         icon={<BuildingOffice2Svg {...ICON_PROPS} />}
         text="2021"
@@ -40,13 +40,13 @@ export default function MilestoneBanner() {
       />
       <MilestoneBannerItem
         icon={<FolderOpenSvg {...ICON_PROPS} />}
-        text="400+"
-        subText="Cases reviewed"
+        text="Hundreds"
+        subText="of cases reviewed"
       />
       <MilestoneBannerItem
         icon={<SmileSvg {...ICON_PROPS} />}
-        text="250"
-        subText="Happy clients"
+        text="Thousands"
+        subText="of happy clients"
       />
     </ul>
   )
