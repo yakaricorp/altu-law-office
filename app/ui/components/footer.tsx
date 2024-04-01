@@ -38,11 +38,16 @@ export default function Footer() {
         <div className="flex flex-1 flex-wrap gap-16 text-secondary">
           {
             footerSections.map(section => (
-              <ul>
+              <ul key={section.header}>
                 <li><h4 className="font-bold text-lg mb-1">{ section.header }</h4></li>
                 {
                   section.links.map(link => (
-                    <li className="mb-1 hover:underline"><a href="">{ link.text }</a></li>
+                    <li
+                      key={link.text}
+                      className="mb-1 hover:underline"
+                    >
+                      <a href="">{ link.text }</a>
+                    </li>
                   ))
                 }
               </ul>
