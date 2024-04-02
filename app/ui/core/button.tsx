@@ -21,6 +21,7 @@ export default function Button({ label, type, onClick, className }: Props) {
       ])}
       style={{ transition: 'background-color .1s linear' }}
       onClick={onClick}
+      data-testid="button"
     >
       { label }
     </button>
