@@ -3,7 +3,6 @@
 import { useEffect } from "react"
 import ScalingImageWithHeading from "@/ui/components/scaling-image-with-heading"
 import IconHeaderWithSlidingText from "@/ui/components/icon-header-with-sliding-text"
-import Map from "@/ui/components/map"
 import Section from "@/ui/components/section"
 import ContactAboutUs from "./sections/contact-about-us"
 import MilestoneBanner from "./sections/milestone-banner"
