@@ -26,9 +26,9 @@ export default function SendMessageForm({ className }: Props) {
 
   return (
     <form action="/" onSubmit={onSubmit} className={classNames([className])}>
-      <div className="flex gap-8 mt-4">
+      <div className="flex xs:flex-wrap gap-4 mt-4">
         <Input
-          className="flex-1"
+          className="flex-1 xs:min-w-[120px]"
           placeholder="Name"
           type="text"
           value={fullName}
@@ -36,7 +36,7 @@ export default function SendMessageForm({ className }: Props) {
           onChange={onChangeFullName}
         ></Input>
         <Input
-          className="flex-1"
+          className="flex-1 xs:min-w-[120px]"
           placeholder="Email"
           type="email"
           value={email}
@@ -53,8 +53,8 @@ export default function SendMessageForm({ className }: Props) {
           onChange={onChangeMessage}
         ></TextArea>
       </div>
-      <div className="text-right">
-        <Button type="submit" label="Send" className="px-20"></Button>
+      <div className="text-right xs:text-center">
+        <Button type="submit" label="Send" className="px-20 xs:w-full"></Button>
       </div>
     </form>
   )

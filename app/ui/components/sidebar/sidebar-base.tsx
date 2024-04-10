@@ -2,7 +2,6 @@
 
 import classNames from 'classnames'
 import Link from 'next/link'
-import SidebarContactSection from './contact-section'
 import StarSvg from '@/ui/icons/star.svg'
 import { font_mukta, font_playfair } from '@/ui/fonts'
 

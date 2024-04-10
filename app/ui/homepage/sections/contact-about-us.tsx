@@ -22,7 +22,7 @@ export default function ContactAboutUs() {
   ]
 
   return (
-    <div className="md:flex block">
+    <div className="flex md-w-sidebar:block">
       <div className="flex-1 text-white px-12 py-32 bg-center bg-cover bg-[url('/pardon.jpg')] bg-[#444] bg-blend-multiply">
         <h6 className={classNames([
           'text-3xl mb-12 text-primary',

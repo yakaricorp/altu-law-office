@@ -11,7 +11,7 @@ type Props = {
 
 export default function Section({ header, subHeader, className, children }: Props) {
   return (
-    <section className={classNames(['page-section px-12', className])}>
+    <section className={classNames(['page-section px-12', className || ''])}>
       {
         header &&
         <h1 className={classNames([
