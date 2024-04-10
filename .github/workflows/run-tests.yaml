@@ -1,8 +1,24 @@
-name: hello-world
-on: push
+name: run-tests
+on:
+  push:
+    branches:
+      - '**'        # matches every branch
+      - '!main'   # excludes master
 jobs:
-  my-job:
+  unit-tests:
     runs-on: ubuntu-latest
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x.x
+          cache: npm
+
+      - name: Install project dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Check build
+        run: npm build

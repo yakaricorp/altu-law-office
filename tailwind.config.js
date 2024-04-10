@@ -35,7 +35,7 @@ module.exports = {
     screens: {
       ...defaultTheme.screens,
       'xs': { max: '640px' },
-      'md-w-sidebar': { max: '1024px' }
+      'md-w-sidebar': { max: '1124px' }
     },
   },
   plugins: [
