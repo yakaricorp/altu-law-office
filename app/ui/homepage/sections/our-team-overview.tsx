@@ -35,9 +35,9 @@ export function TeamMemberItem({
       <div className="py-6 text-textPrimary font-light border-b">
         { description }
       </div>
-      <div className="py-6 flex text-center gap-2">
-        <Button className="flex-1" label="View background"></Button>
-        <Button className="flex-1" label="Send a message"></Button>
+      <div className="py-6 flex xs:flex-wrap text-center gap-2">
+        <Button className="flex-1 xs:flex-0" label="View background"></Button>
+        <Button className="flex-1 xs:flex-0" label="Send a message"></Button>
       </div>
     </li>
   )
@@ -64,10 +64,10 @@ export default function OurTeamOverview() {
       <h4 className={classNames([font_playfair.className, 'uppercase text-center text-4xl font-bold py-24'])}>
         <span className="text-primary">Meet</span> our <span className="text-primary">attorneys</span>
       </h4>
-      <ul className="md:flex block justify-center py-24 pt-0">
+      <ul className="flex md-w-sidebar:block justify-center py-12 pt-0">
         {
           attorneys.map(attorney => (
-            <TeamMemberItem key={attorney.fullname} {...attorney}></TeamMemberItem>
+            <TeamMemberItem className="md-w-sidebar:my-12" key={attorney.fullname} {...attorney}></TeamMemberItem>
           ))
         }
       </ul>
