@@ -22,5 +22,8 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Check directory
+        run: ls
+
       - name: Check build
         run: npm run build
