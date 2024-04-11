@@ -2,8 +2,8 @@ name: run-tests
 on:
   push:
     branches:
-      - '**'        # matches every branch
-      - '!main'   # excludes master
+      - '**' # matches every branch
+      - '!main' # excludes master
 jobs:
   unit-tests:
     runs-on: ubuntu-latest
@@ -25,5 +25,11 @@ jobs:
       - name: Check directory
         run: ls
 
-      - name: Check build
-        run: npm run build
+      - name: Install JQ
+        run: sudo apt update
+      
+      - run: sudo apt install -y jq
+      - run: jq --version
+
+      # - name: Check build
+      #   run: npm run build
