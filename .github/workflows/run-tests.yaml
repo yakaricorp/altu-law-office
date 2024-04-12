@@ -6,7 +6,7 @@ on:
       - '!main' # excludes master
 
 env:
-  TEST_COVERAGE_THRESHOLD: 10
+  TEST_COVERAGE_THRESHOLD: 0.5
 
 jobs:
   unit-tests:

@@ -40,8 +40,8 @@ const config: Config = {
 
   // A list of reporter names that Jest uses when writing coverage reports
   coverageReporters: [
-    "json",
-    "text"
+    "json-summary",
+    "text-summary"
   ],
 
   // An object that configures minimum threshold enforcement for coverage results
