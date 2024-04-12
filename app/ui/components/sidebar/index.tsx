@@ -1,10 +1,7 @@
-// import { Playfair_Display } from 'next/font/google'
 import SidebarDesktop from '@/ui/components/sidebar/sidebar-desktop'
 import type { SidebarMenuItem } from '@/lib/definitions'
 
 import { randomUUID } from 'crypto'
-
-// const pfDisplay = Playfair_Display({ weight: '400', subsets: ['latin'] })
 
 export default function Sidebar() {
   const navMenuItems: SidebarMenuItem[] = [
