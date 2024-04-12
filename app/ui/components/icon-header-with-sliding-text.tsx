@@ -48,7 +48,7 @@ export default function IconHeaderWithSlidingText() {
             'transition-all -mb-12 opacity-0',
             paragraphClasses.join(' '),
           ])}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima pariatur ex, quae corporis sequi doloribus.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima pariatur ex, quae corporis sequi.
           </p>
         </div>
       </div>
