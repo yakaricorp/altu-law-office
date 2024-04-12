@@ -15,4 +15,4 @@ jobs:
         run: export VERCEL_URL=$VERCEL_PREVIEW_WEBHOOK_URL
 
       - name: Vercel preview deploy webhook
-        run: "curl -H 'Content-Type: application/json' -X POST ${{ VERCEL_URL }}"
+        run: "curl -H 'Content-Type: application/json' -X POST ${{ env.VERCEL_URL }}"
