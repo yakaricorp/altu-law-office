@@ -20,7 +20,7 @@ module.exports = {
         '1': '1',
         '2': '2',
         '3': '3',
-      },
+      }
     },
     colors: {
       ...colors,

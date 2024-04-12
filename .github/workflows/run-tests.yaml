@@ -19,17 +19,13 @@ jobs:
       - name: Install project dependencies
         run: npm ci
 
+      - name: Eslint
+        run: npm run lint
+
+      - run: rm -rf ./__coverage__
+
       - name: Run tests
         run: npm test
 
-      - name: Check directory
-        run: ls
-
-      - name: Install JQ
-        run: sudo apt update
-      
-      - run: sudo apt install -y jq
-      - run: jq --version
-
-      # - name: Check build
-      #   run: npm run build
+      - name: Confirm coverage
+        run: node ./scripts/confirm-coverage.mjs
