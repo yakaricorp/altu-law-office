@@ -35,4 +35,4 @@ jobs:
       - run: ls -a
 
       - name: Confirm coverage
-        run: node ./scripts/confirm-coverage.mjs threshold=$TEST_COVERAGE_THRESHOLD
+        run: node ./scripts/confirm-coverage.mjs --threshold=$TEST_COVERAGE_THRESHOLD
