@@ -4,6 +4,10 @@ on:
     branches:
       - '**' # matches every branch
       - '!main' # excludes master
+
+env:
+  TEST_COVERAGE_THRESHOLD: 10
+
 jobs:
   unit-tests:
     runs-on: ubuntu-latest
@@ -28,4 +32,4 @@ jobs:
         run: npm test
 
       - name: Confirm coverage
-        run: node ./scripts/confirm-coverage.mjs
+        run: node ./scripts/confirm-coverage.mjs threshold=$TEST_COVERAGE_THRESHOLD

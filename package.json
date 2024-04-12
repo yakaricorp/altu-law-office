@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --collect-coverage --coverageReporters=\"json-summary\""
+    "test": "jest --collect-coverage",
+    "confirm-coverage": "node ./scripts/confirm-coverage.mjs"
   },
   "dependencies": {
     "@react-google-maps/api": "^2.19.2",
