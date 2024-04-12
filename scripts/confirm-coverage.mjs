@@ -9,3 +9,14 @@ const COV_THRESHOLD = Number(thresholdArg.replace('--threshold=', ''))
 const { total } = coverageSummary
 ok(total, 'Coverage report not found.')
 equal(total.lines.pct < COV_THRESHOLD, false, `Coverage is under the ${COV_THRESHOLD}% threshold!`)
+
+const messages = [
+  '',
+  'Test coverage',
+  '-------------',
+  `Current: ${total.lines.pct}%`,
+  `Expected: ${COV_THRESHOLD}%`,
+  ''
+]
+
+messages.map(message => console.info(message))
