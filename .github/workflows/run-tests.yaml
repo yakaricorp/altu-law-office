@@ -28,8 +28,11 @@ jobs:
 
       - run: rm -rf ./__coverage__
 
+
       - name: Run tests
         run: npm test
+
+      - run: ls -a
 
       - name: Confirm coverage
         run: node ./scripts/confirm-coverage.mjs threshold=$TEST_COVERAGE_THRESHOLD
