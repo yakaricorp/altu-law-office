@@ -1,4 +1,7 @@
+'use client'
+
 import type { FormEvent } from "react"
+import { experimental_useFormStatus } from "react-dom"
 import classNames from "classnames"
 
 import Input from "@/ui/core/input"
@@ -6,6 +9,7 @@ import Button from "@/ui/core/button"
 import TextArea from "@/ui/core/textarea"
 import useInput from "@/ui/hooks/use-input"
 
+import { contactSendMessage } from "@/actions"
 
 type Props = {
   className?: string;
@@ -25,7 +29,7 @@ export default function SendMessageForm({ className }: Props) {
   }
 
   return (
-    <form action="/" onSubmit={onSubmit} className={classNames([className])}>
+    <form action={contactSendMessage} className={classNames([className])}>
       <div className="flex xs:flex-wrap gap-4 mt-4">
         <Input
           className="flex-1 xs:min-w-[120px]"

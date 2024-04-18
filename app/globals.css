@@ -2,13 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --sidebar-width: 360px;
 }
 
 .jtron {
-  /* background-image: url(/pxfuel.jpg); */
   background-size: cover;
   background-position: center;
   transition: background 1s linear;
@@ -19,13 +17,6 @@
   animation-duration: 1s;
   animation-delay: 0;
   animation-iteration-count: 1;
-}
-
-body {
-  /* background-image: url(/pardon.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover; */
 }
 
 @keyframes slideUp {
@@ -61,6 +52,7 @@ body {
 
   #page-content {
     margin-left: 0;
+    width: 100vw;
   }
 
   .mobile-visible aside#sidebar {

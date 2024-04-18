@@ -21,7 +21,7 @@ export function TeamMemberItem({
     <li className={classNames(['mx-16', className])}>
       <div className="h-[420px] relative overflow-clip">
         <Image
-          className="absolute object-cover grayscale"
+          className="absolute object-cover grayscale max-w-full"
           src={imageUri}
           alt={fullname}
           fill

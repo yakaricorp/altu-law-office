@@ -70,6 +70,10 @@ export default function JumboOverlay() {
     setTimeout(() => {
       setCurrentItem(currentItem.next as CircularQueueNode)
     }, 6000)
+    fetch('/api/send-message')
+      .then(res => res.json())
+      .then(json => console.log({ json }))
+      .catch(err => console.error(err))
   }, [currentItem])
 
   return (

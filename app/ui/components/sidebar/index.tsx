@@ -33,7 +33,7 @@ export default function Sidebar() {
     {
       key: randomUUID(),
       text: 'İletişim',
-      route: '/',
+      route: '/contact',
     },
   ]
 
