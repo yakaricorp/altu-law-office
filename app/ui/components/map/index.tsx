@@ -7,8 +7,9 @@ import {
   OVERLAY_MOUSE_TARGET,
   useJsApiLoader
 } from "@react-google-maps/api"
-import { MapProvider } from "@/ui/components/map/map-ref-provider"
 import AddressControl from "@/ui/components/map/address-control"
+import GoogleMapsContextProvider from "@/ui/context/google-maps-context"
+
 import { font_playfair, font_mukta } from "@/ui/fonts"
 import classNames from "classnames"
 
@@ -25,22 +26,6 @@ export default function Map() {
       x: -(width / 2),
       y: -(height / 2),
     }
-  }
-
-  function onLoadedMap() {
-    console.log('onLoadedMap')
-  }
-
-  function onUnmountMap() {
-    console.log('onUnmountMap')
-  }
-
-  function onLoadedOverlay() {
-    console.log('onLoadedOverlay')
-  }
-
-  function onUnmountOverlay() {
-    console.log('onUnmountOverlay')
   }
 
   return isLoaded ? (
@@ -60,8 +45,6 @@ export default function Map() {
         mapTypeControl: false,
         fullscreenControl: false,
       }}
-      onLoad={onLoadedMap}
-      onUnmount={onUnmountMap}
     >
       <OverlayViewF
         position={{
@@ -70,8 +53,6 @@ export default function Map() {
         }}
         mapPaneName={OVERLAY_MOUSE_TARGET}
         getPixelPositionOffset={centerOverlayView}
-        onLoad={onLoadedOverlay}
-        onUnmount={onUnmountOverlay}
       >
         <div className={classNames([
           font_mukta.className,
@@ -85,9 +66,9 @@ export default function Map() {
           <div className="bottom-arrow border-black"></div>
         </div>
       </OverlayViewF>
-      <MapProvider value={mapRef}>
+      <GoogleMapsContextProvider mapRef={mapRef}>
         <AddressControl></AddressControl>
-      </MapProvider>
+      </GoogleMapsContextProvider>
     </GoogleMap>
   ) : (
     <></>

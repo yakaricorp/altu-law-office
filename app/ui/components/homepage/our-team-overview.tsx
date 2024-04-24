@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import Image from "next/image"
-import Button from "@/ui/core/button"
+import Button from "@/ui/components/core/button"
 import { font_playfair } from "@/ui/fonts"
 
 type ItemProps = {

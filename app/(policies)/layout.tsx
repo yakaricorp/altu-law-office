@@ -1,17 +1,17 @@
-import './globals.css'
-import Sidebar from '@/ui/components/sidebar'
+import '../globals.css'
 
 import type { ReactNode } from 'react'
 import type { Metadata } from "next"
+import classNames from 'classnames'
+
 import { font_mukta } from '@/ui/fonts'
-import Footer from '@/ui/components/footer'
 
 export const metadata: Metadata = {
   title: 'Altu',
   description: 'Altu Hukuk Burosu',
 }
 
-export default function RootLayout({
+export default function PoliciesLayout({
   children,
 }: {
   children: ReactNode
@@ -20,12 +20,8 @@ export default function RootLayout({
 
   return (
     <html lang={HTML_LANG}>
-      <body className={font_mukta.className}>
-        <Sidebar />
-        <div id="page-content" className="z-1">
-          {children}
-          <Footer></Footer>
-        </div>
+      <body className={classNames([font_mukta.className, 'z-1'])}>
+        {children}
       </body>
     </html>
   )

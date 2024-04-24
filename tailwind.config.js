@@ -31,6 +31,10 @@ module.exports = {
       white: '#fff',
       backGray: '#f4f4f4',
       grayVar1: 'rgba(255, 255, 255, 0.1)',
+      'link-alternate': '#619DE5',
+      'severity-info': 'lightblue',
+      'severity-error-low': 'green',
+      'severity-error-high': 'red'
     },
     screens: {
       ...defaultTheme.screens,

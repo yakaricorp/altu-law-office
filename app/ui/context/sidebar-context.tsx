@@ -1,3 +1,7 @@
+// This is not in use. I solved the issue with css only
+// however better to keep this as an example of the best way to use
+// the context api (design)
+
 import { createContext, useContext, useState } from "react"
 import type { Dispatch, SetStateAction, ReactNode } from "react"
 
@@ -15,8 +19,7 @@ type Props = {
 }
 
 export default function SidebarContextProvider({ onStateChanged, children }: Props) {
-  const [isMobileSidebarVisible, setMobileSidebarVisible]
-    = useState(false)
+  const [isMobileSidebarVisible, setMobileSidebarVisible] = useState(false)
 
   onStateChanged({
     isMobileSidebarVisible

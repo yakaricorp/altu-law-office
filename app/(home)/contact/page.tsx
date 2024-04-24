@@ -1,4 +1,4 @@
-import GetInTouch from "@/ui/homepage/sections/get-in-touch"
+import GetInTouch from "@/ui/components/homepage/get-in-touch"
 
 export default function ContactPage() {
   return <GetInTouch></GetInTouch>
