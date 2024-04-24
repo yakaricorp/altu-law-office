@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import { font_playfair } from "@/ui/fonts"
-import Button from "@/ui/core/button"
+import Button from "@/ui/components/core/button"
 import { IconTitleDescriptionList } from "@/ui/components/icon-title-desctiption"
 
 // icons

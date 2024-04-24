@@ -1,56 +1,53 @@
-import type { FormEvent } from "react"
+'use client'
+
+import { useFormState } from "react-dom";
 import classNames from "classnames"
 
-import Input from "@/ui/core/input"
-import Button from "@/ui/core/button"
-import TextArea from "@/ui/core/textarea"
-import useInput from "@/ui/hooks/use-input"
+import Input from "@/ui/components/core/input"
+import Button from "@/ui/components/core/button"
+import TextArea from "@/ui/components/core/textarea"
 
+import { FormState } from "@/lib/definitions"
+import { actionContactSendMessage } from "@/actions"
 
 type Props = {
   className?: string;
 }
 export default function SendMessageForm({ className }: Props) {
-  const { value: fullName, onChange: onChangeFullName } = useInput<HTMLInputElement>('')
-  const { value: email, onChange: onChangeEmail } = useInput<HTMLInputElement>('')
-  const { value: message, onChange: onChangeMessage } = useInput<HTMLTextAreaElement>('')
-
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    console.log({
-      fullName,
-      email,
-      message,
-    })
-  }
+  const [state, formAction] = useFormState<FormState, FormData>(actionContactSendMessage, {
+    severity: null,
+    message: '',
+  })
 
   return (
-    <form action="/" onSubmit={onSubmit} className={classNames([className])}>
+    <form action={formAction} className={classNames([className])}>
+      <div className={classNames({
+        [`bg-${state.severity}`]: true,
+      })}>
+        { state?.message }
+      </div>
       <div className="flex xs:flex-wrap gap-4 mt-4">
         <Input
+          name="name"
           className="flex-1 xs:min-w-[120px]"
           placeholder="Name"
           type="text"
-          value={fullName}
           disabled={false}
-          onChange={onChangeFullName}
         ></Input>
         <Input
+          name="email"
           className="flex-1 xs:min-w-[120px]"
           placeholder="Email"
           type="email"
-          value={email}
           disabled={false}
-          onChange={onChangeEmail}
         ></Input>
       </div>
       <div className="my-4">
         <TextArea
+          name="message"
           placeholder="Message"
           rows={5}
           maxLength={300}
-          value={message}
-          onChange={onChangeMessage}
         ></TextArea>
       </div>
       <div className="text-right xs:text-center">

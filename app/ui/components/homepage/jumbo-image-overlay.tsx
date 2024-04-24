@@ -1,13 +1,12 @@
 'use client'
 
-import { Playfair_Display } from 'next/font/google'
-import Button from '@/ui/core/button'
-import { useState, useEffect } from 'react'
-import { v4 as createId } from 'uuid'
+import { v4 as createId } from 'uuid' 
 
-const pfDisplay = Playfair_Display({ weight: '400', subsets: ['latin'] })
+import Button from '@/ui/components/core/button'
+import { useState, useEffect, useId } from 'react'
+import { font_playfair } from '@/ui/fonts'
 
-export default function JumboOverlay() {
+export default function JumboImageOverlay() {
 
   interface JumbotronSlidingItem {
     key: string;
@@ -79,7 +78,7 @@ export default function JumboOverlay() {
         style={{ backgroundImage: `url(/${currentItem.backgroundImage})` }}
       ></div>
       <div className="absolute bg-white px-12 py-10 mx-6 my-6 bottom-0 max-w-lg min-w-min anm" key={currentItem.key}>
-        <h2 className={pfDisplay.className + ' text-2xl mb-3 mobile-visible:whitespace-pre'}>{ currentItem.title }</h2>
+        <h2 className={font_playfair.className + ' text-2xl mb-3 mobile-visible:whitespace-pre'}>{ currentItem.title }</h2>
         <p className="text-md text-gray-600 mb-6">{ currentItem.description }</p>
         <Button label="Click here"></Button>
       </div>

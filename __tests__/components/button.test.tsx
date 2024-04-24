@@ -1,6 +1,22 @@
 import '@testing-library/jest-dom'
 import { render, screen, fireEvent } from '@testing-library/react'
-import Button from '../../app/ui/core/button'
+import Button from '../../app/ui/components/core/button'
+
+const mockUseFormStatus = jest.fn()
+jest.mock('react-dom', () => {
+  const actualModule = jest.requireActual('react-dom')
+  return {
+    ...actualModule,
+    useFormStatus: () => {
+      return mockUseFormStatus.mockImplementationOnce(() => {
+        return {
+          pending: false
+        }
+      })()
+    }
+  }
+})
+
 
 describe('Button', () => {
   it('Renders a button correctly', () => {

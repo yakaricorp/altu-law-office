@@ -31,23 +31,39 @@ function MilestoneBannerItem({ icon, text, subText }: ItemProps) {
 }
 
 export default function MilestoneBanner() {
+  const milestoneBannerItems = [
+    {
+      key: 'company-established',
+      text: '2021',
+      subText: 'Company established',
+      icon: <BuildingOffice2Svg {...ICON_PROPS} />,
+    },
+    {
+      key: 'cases-reviewed',
+      text: 'Hundreds',
+      subText: 'of cases reviewed',
+      icon: <FolderOpenSvg {...ICON_PROPS} />,
+    },
+    {
+      key: 'happy-clients',
+      text: 'Thousands',
+      subText: 'of happy clients',
+      icon: <SmileSvg {...ICON_PROPS} />,
+    }
+  ]
+
   return (
     <ul className="flex align-center justify-center px-8 py-16 gap-16 sm:flex-wrap xs:flex-wrap bg-gradient-to-b from-white to-alternate">
-      <MilestoneBannerItem
-        icon={<BuildingOffice2Svg {...ICON_PROPS} />}
-        text="2021"
-        subText="Company established"
-      />
-      <MilestoneBannerItem
-        icon={<FolderOpenSvg {...ICON_PROPS} />}
-        text="Hundreds"
-        subText="of cases reviewed"
-      />
-      <MilestoneBannerItem
-        icon={<SmileSvg {...ICON_PROPS} />}
-        text="Thousands"
-        subText="of happy clients"
-      />
+      {
+        milestoneBannerItems.map(item => (
+          <MilestoneBannerItem
+            key={item.key}
+            icon={item.icon}
+            text={item.text}
+            subText={item.subText}
+          />
+        ))
+      }
     </ul>
   )
 }

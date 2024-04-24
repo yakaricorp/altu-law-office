@@ -10,6 +10,7 @@ type Props = InputPropTypes<HTMLInputElement> & {
 }
 
 export default function Input({
+  name,
   type,
   value,
   onChange,
@@ -27,6 +28,7 @@ export default function Input({
       <input
         className="outline-none w-full"
         type={type}
+        name={name}
         id={inputId}
         value={value}
         disabled={disabled}

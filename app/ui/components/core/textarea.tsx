@@ -10,6 +10,7 @@ type Props = InputPropTypes<HTMLTextAreaElement> & {
 }
 
 export default function TextArea({
+  name,
   value,
   rows,
   onChange,
@@ -28,6 +29,7 @@ export default function TextArea({
       <textarea
         className="outline-none w-full"
         id={inputId}
+        name={name}
         value={value}
         disabled={disabled}
         placeholder={placeholder}

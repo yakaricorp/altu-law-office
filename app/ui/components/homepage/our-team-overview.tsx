@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import Image from "next/image"
-import Button from "@/ui/core/button"
+import Button from "@/ui/components/core/button"
 import { font_playfair } from "@/ui/fonts"
 
 type ItemProps = {
@@ -21,7 +21,7 @@ export function TeamMemberItem({
     <li className={classNames(['mx-16', className])}>
       <div className="h-[420px] relative overflow-clip">
         <Image
-          className="absolute object-cover grayscale"
+          className="absolute object-cover grayscale max-w-full"
           src={imageUri}
           alt={fullname}
           fill
