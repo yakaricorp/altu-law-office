@@ -24,7 +24,7 @@ export default function TextArea({
   const inputId = useId()
 
   return (
-    <div className={classNames(['border px-4 py-3', className])}>
+    <div className={classNames(['border border-gray-var-2 px-4 py-3', className])}>
       <label htmlFor={inputId}>{label}</label>
       <textarea
         className="outline-none w-full"

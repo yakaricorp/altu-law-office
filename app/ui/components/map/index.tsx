@@ -62,7 +62,7 @@ export default function Map() {
             font_playfair.className,
             "text-primary font-bold text-xl tracking-wide mb-1"
           ])}>ALTU</h1>
-          <h1 className="text-textPrimary text-sm">HUKUK BUROSU</h1>
+          <h1 className="text-text-primary text-sm">HUKUK BUROSU</h1>
           <div className="bottom-arrow border-black"></div>
         </div>
       </OverlayViewF>
