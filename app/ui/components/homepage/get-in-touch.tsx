@@ -10,27 +10,30 @@ import PhoneOutlineSvg from "@/ui/icons/phone-outline.svg"
 import MailOutlineSvg from "@/ui/icons/mail-outline.svg"
 import ClockSvg from "@/ui/icons/clock.svg"
 
-export default function GetInTouch() {
+const getInTouchData = [{
+  key: 'phone',
+  icon: <PhoneOutlineSvg />,
+  title: 'Phone',
+  description: '(555) 555 55 55',
+}, {
+  key: 'email',
+  icon: <MailOutlineSvg />,
+  title: 'E-Mail',
+  description: 'altuhukuk@gmail.com',
+}, {
+  key: 'work-hours',
+  icon: <ClockSvg />,
+  title: 'Work Hours',
+  description: 'Mon-Fri: 08:00-19:00',
+}]
 
-  const getInTouchData = [{
-    key: 'phone',
-    icon: <PhoneOutlineSvg />,
-    title: 'Phone',
-    description: '(555) 555 55 55',
-  }, {
-    key: 'email',
-    icon: <MailOutlineSvg />,
-    title: 'E-Mail',
-    description: 'altuhukuk@gmail.com',
-  }, {
-    key: 'work-hours',
-    icon: <ClockSvg />,
-    title: 'Work Hours',
-    description: 'Mon-Fri: 08:00-19:00',
-  }]
+type Props = {
+  className?: string;
+}
 
+export default function GetInTouch({ className }: Props) {
   return (
-    <Section header="Get In Touch" subHeader="Contact Us" className="py-16">
+    <Section header="Get In Touch" subHeader="Contact Us" className={classNames(className)}>
       <div>
         <Map></Map>
         <div className="flex flex-wrap gap-32 py-6 mt-8">

@@ -15,7 +15,7 @@ function ContactSectionItem({ icon, text, hoverText, textClasses }: ContactSecti
   const textDefaultClasses = 'text-right tracking-wider text-primary break-keep whitespace-nowrap'
 
   return (
-    <li className="border rounded-full border-grayVar1 flex items-center mx-8 my-2 px-4 py-1 h-10 cursor-pointer parent-hover overflow-hidden relative">
+    <li className="border rounded-full border-gray-var-1 flex items-center mx-8 my-2 px-4 py-1 h-10 cursor-pointer parent-hover overflow-hidden relative">
       <span className="w-4 text-primary">
         {icon}
       </span>

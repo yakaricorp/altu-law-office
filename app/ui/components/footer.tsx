@@ -1,37 +1,55 @@
-export default function Footer() {
-  const footerSections = [
-    {
-      header: 'ALTU Hukuk',
-      links: [
-        {
-          text: 'About',
-          src: '/',
-        },
-        {
-          text: 'Attorneys',
-          src: '/',
-        },
-        {
-          text: 'Contact',
-          src: '/',
-        },
-      ],
-    },
-    {
-      header: 'Info',
-      links: [
-        {
-          text: 'Services',
-          src: '/',
-        },
-        {
-          text: 'FAQ',
-          src: '/',
-        },
-      ],
-    },
-  ]
+import Link from 'next/link'
+import { v4 as createId } from 'uuid'
 
+const footerSections = [
+  {
+    header: 'ALTU Hukuk',
+    links: [
+      {
+        key: createId(),
+        text: 'About',
+        src: '/',
+      },
+      {
+        key: createId(),
+        text: 'Attorneys',
+        src: '/',
+      },
+      {
+        key: createId(),
+        text: 'Contact',
+        src: '/',
+      },
+    ],
+  },
+  {
+    header: 'Info',
+    links: [
+      {
+        key: createId(),
+        text: 'Services',
+        src: '/',
+      },
+      {
+        key: createId(),
+        text: 'FAQ',
+        src: '/',
+      },
+    ],
+  },
+  {
+    header: 'Privacy & Terms',
+    links: [
+      {
+        key: createId(),
+        text: 'Privacy Policy',
+        src: '/privacy-policy',
+      },
+    ],
+  },
+]
+
+export default function Footer() {
   return (
     <>
       <div className="px-12 py-12 bg-alternate flex flex-wrap gap-2">
@@ -42,11 +60,8 @@ export default function Footer() {
                 <li><h4 className="font-bold text-lg mb-1">{ section.header }</h4></li>
                 {
                   section.links.map(link => (
-                    <li
-                      key={link.text}
-                      className="mb-1 hover:underline"
-                    >
-                      <a href="">{ link.text }</a>
+                    <li key={link.key} className="mb-1 hover:underline">
+                      <Link href={link.src}>{ link.text }</Link>
                     </li>
                   ))
                 }
@@ -63,7 +78,7 @@ export default function Footer() {
         </ul>
       </div>
       <div className="p-2 text-center tracking-[0.3rem] text-sm text-secondary bg-primary">
-        © 2024 ALTU HUKUK
+        © {new Date().getFullYear()} ALTU HUKUK
       </div>
     </>
   )

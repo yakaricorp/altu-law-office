@@ -19,11 +19,11 @@ export const render = ({ menuItems }: { menuItems: SidebarMenuItem[] }): JSX.Ele
         <h1 className="text-primary text-6xl mb-2 tracking-wider">ALTU</h1>
         <h2 className={classNames([
           font_mukta.className,
-          'text-textPrimary font-thin text-xl tracking-widest uppercase'
+          'text-text-primary font-thin text-xl tracking-widest uppercase'
         ])}>Hukuk Bürosu</h2>
       </div>
       <div className="px-8">
-        <ul className="text-textPrimary">
+        <ul className="text-text-primary">
           {
             menuItems.map(menuItem => (
               <li key={menuItem.key} className="flex items-center mb-3 cursor-pointer hover:text-primary">
