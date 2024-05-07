@@ -8,7 +8,7 @@ import Button from "@/ui/components/core/button"
 import TextArea from "@/ui/components/core/textarea"
 
 import { FormState } from "@/lib/definitions"
-import { actionContactSendMessage } from "@/actions/contact-send-message"
+import { actionContactSendMessage } from "@/actions/contact-send-message/index"
 
 type Props = {
   className?: string;

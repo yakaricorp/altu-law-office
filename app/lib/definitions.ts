@@ -28,4 +28,9 @@ export type FormState = {
   message: string
 }
 
+export type AnimationTarget = 'header' | 'subheader' | 'tile' | 'card'
+export type AnimationTargetProps = {
+  animationTarget?: AnimationTarget;
+}
+
 

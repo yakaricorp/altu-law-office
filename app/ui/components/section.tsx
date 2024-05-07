@@ -22,8 +22,10 @@ export default function Section({ header, subHeader, className, children }: Prop
         header &&
         <h1 className={classNames([
           font_mukta.className,
-          'text-primary font-thin text-sm tracking-[0.2rem] uppercase pt-12'
-        ])}>
+          'text-primary font-thin text-sm tracking-[0.2rem] uppercase pt-12 use-anim'
+        ])}
+          data-animation-target="header"
+        >
           { header }
         </h1>
       }
@@ -31,8 +33,10 @@ export default function Section({ header, subHeader, className, children }: Prop
         subHeader &&
         <h2 className={classNames([
           font_playfair.className,
-          'text-secondary mt-2 text-3xl'
-        ])}>
+          'text-secondary mt-2 text-3xl use-anim'
+        ])}
+          data-animation-target="subheader"
+        >
           { subHeader }
         </h2>
       }
