@@ -26,7 +26,11 @@ export default function ServiceTypeTiles({ className }: Props) {
       <div className="flex flex-wrap justify-center gap-8">
         {
           titleDescriptionData.map(data => (
-            <IconHeaderWithSlidingText key={data.key} />
+            <IconHeaderWithSlidingText
+              key={data.key}
+              className="use-anim"
+              animationTarget="card"
+            />
           ))
         }
       </div>

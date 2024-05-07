@@ -6,8 +6,12 @@ import { useState } from "react";
 import { font_playfair } from '@/ui/fonts'
 import BriefcaseSvg from '@/ui/icons/briefcase.svg'
 
-// TODO: get icon as prop
-export default function IconHeaderWithSlidingText() {
+import type { AnimationTargetProps } from '@/lib/definitions'
+
+type Props = {
+  className?: string;
+} & AnimationTargetProps
+export default function IconHeaderWithSlidingText({ className, animationTarget }: Props) {
 
   const [imageClasses, setImageClasses] = useState<string[]>([])
   const [headerClasses, setHeaderClasses] = useState<string[]>([])
@@ -26,7 +30,14 @@ export default function IconHeaderWithSlidingText() {
   }
 
   return (
-    <div className="transition-all border-b-4 border-white hover:border-b-4 hover:border-primary overflow-clip bg-white pt-12 pb-4 px-4 max-w-sm cursor-default" onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
+    <div className={classNames([
+      'transition-all border-b-4 border-white hover:border-b-4 hover:border-primary overflow-clip bg-white pt-12 pb-4 px-4 max-w-sm cursor-default',
+      className,
+    ])}
+      onMouseOver={onMouseOver}
+      onMouseLeave={onMouseLeave}
+      data-animation-target={animationTarget}
+    >
       <div>
         <div className={'transition-all ' + imageClasses.join(' ')}>
           <BriefcaseSvg

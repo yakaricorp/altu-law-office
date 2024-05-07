@@ -29,10 +29,16 @@ type Props = {
 export default function CaseTypeTiles({ className }: Props) {
   return (
     <Section header="Hello world" subHeader="Header" className={classNames(className)}>
-      <div className="flex flex-wrap gap-8">
+      <div className="flex flex-wrap gap-8 sm:justify-center">
         {
           caseTypesData.map(data => (
-            <ScalingImageWithHeading key={data.key} className="flex-1" image={data.image} heading={data.heading} />
+            <ScalingImageWithHeading
+              key={data.key}
+              className="flex-1 use-anim"
+              animationTarget="tile"
+              image={data.image}
+              heading={data.heading}
+            />
           ))
         }
       </div>

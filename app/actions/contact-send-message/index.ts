@@ -6,6 +6,7 @@ import { URL } from 'url'
 // import { z } from "zod"
 
 import { Severity, FormState } from '@/lib/definitions'
+import TelegramSender from './sender-service-builders/telegram'
 
 const RESPONSE = Object.freeze({
   SUCCESS: {
@@ -18,19 +19,6 @@ const RESPONSE = Object.freeze({
   },
 })
 
-function getTelegramApiUrl(endpoint: string): URL {
-  const botToken = `bot${process.env.TELEGRAM_API_TOKEN}`
-  const url = new URL(process.env.TELEGRAM_API_URL as string)
-  url.pathname = path.join(botToken, endpoint)
-  return url
-}
-
-function getTelegramApiHeaders() {
-  return {
-    'Content-Type': 'application/json'
-  }
-}
-
 export async function actionContactSendMessage(prevState: FormState, formData: FormData): Promise<FormState> {
   const formValues = {
     name: String(formData.get('name')).trim(),
@@ -38,26 +26,13 @@ export async function actionContactSendMessage(prevState: FormState, formData: F
     message: String(formData.get('message')).trim(),
   }
 
-  const body = {
-    chat_id: process.env.TELEGRAM_API_CHAT_ID,
-    text: [
-      `Name: ${formValues.name}`,
-      `Contact: ${formValues.email}`,
-      '', formValues.message,
-    ].join('\n'),
-  }
-
   let response;
   try {
-    const res = await fetch(
-      getTelegramApiUrl('sendMessage'),
-      {
-        method: 'POST',
-        headers: getTelegramApiHeaders(),
-        body: JSON.stringify(body)
-      },
-    )
-  
+    const telegramSender = new TelegramSender()
+      .withEndpoint('sendMessage')
+      .withContent(formValues)
+      .build()
+    const res = await telegramSender
     response = await res.json()
     if (!response.ok) {
       return RESPONSE.ERROR
