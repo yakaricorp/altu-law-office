@@ -1,19 +1,19 @@
 variable "project_name" {
   type        = string
   description = "GCP project name"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "default_region" {
   type        = string
   description = "GCP default region for resources"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "gw_default_region" {
   type        = string
   description = "GCP default region for resources"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "serverless_fn_defaults" {
@@ -39,11 +39,50 @@ variable "TELEGRAM_API_URL" {
 }
 
 variable "TELEGRAM_API_TOKEN" {
-  type = string
+  type      = string
   sensitive = true
 }
 
 variable "TELEGRAM_CHAT_ID" {
-  type = string
+  type      = string
   sensitive = true
+}
+
+variable "MAIL_SERVICE_HOST" {
+  type = string
+}
+
+variable "MAIL_SERVICE_PORT" {
+  type = number
+}
+
+variable "MAIL_SERVICE_SENDER_ADDRESS" {
+  type = string
+}
+
+variable "MAIL_SERVICE_RECEIVER_ADDRESS" {
+  type = string
+}
+variable "MAIL_SERVICE_CLIENT_ID" {
+  type      = string
+  sensitive = true
+}
+
+variable "MAIL_SERVICE_CLIENT_SECRET" {
+  type      = string
+  sensitive = true
+}
+
+variable "MAIL_SERVICE_ACCESS_TOKEN" {
+  type      = string
+  sensitive = true
+}
+
+variable "MAIL_SERVICE_REFRESH_TOKEN" {
+  type      = string
+  sensitive = true
+}
+
+variable "MAIL_SERVICE_TOKEN_EXPIRY" {
+  type = number
 }
