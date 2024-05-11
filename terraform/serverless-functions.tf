@@ -7,7 +7,8 @@ locals {
 }
 
 locals {
-  role_cloud_run_invoker = "roles/cloudfunctions.invoker"
+  role_cloud_run_invoker     = "roles/cloudfunctions.invoker"
+  role_secret_manager_access = "roles/secretmanager.secretAccessor"
 }
 
 # Function: ContactSendMessage
@@ -25,6 +26,19 @@ resource "google_storage_bucket_object" "contact_send_message_source" {
   name   = "${local.contact_send_message.name}-${data.archive_file.contact_send_message_source.output_base64sha256}.zip"
   bucket = google_storage_bucket.fn_source_bucket.name
   source = data.archive_file.contact_send_message_source.output_path
+}
+
+resource "google_secret_manager_secret_iam_member" "accessor_mail_svc_secret_vars" {
+  for_each = tomap({
+    "MAIL_SERVICE_CLIENT_ID" : var.MAIL_SERVICE_CLIENT_ID,
+    "MAIL_SERVICE_CLIENT_SECRET" : var.MAIL_SERVICE_CLIENT_SECRET,
+    "MAIL_SERVICE_ACCESS_TOKEN" : var.MAIL_SERVICE_ACCESS_TOKEN
+    "MAIL_SERVICE_REFRESH_TOKEN" : var.MAIL_SERVICE_REFRESH_TOKEN,
+  })
+  project   = google_cloudfunctions_function.contact_send_message.project
+  secret_id = each.value
+  role      = local.role_secret_manager_access
+  member    = "serviceAccount:${google_service_account.fn_service_account.email}"
 }
 
 # Create/update the function
@@ -46,9 +60,36 @@ resource "google_cloudfunctions_function" "contact_send_message" {
   service_account_email        = google_service_account.fn_service_account.email
 
   environment_variables = {
-    TELEGRAM_API_URL = var.TELEGRAM_API_URL
-    TELEGRAM_API_TOKEN = var.TELEGRAM_API_TOKEN
-    TELEGRAM_CHAT_ID = var.TELEGRAM_CHAT_ID
+    "MAIL_SERVICE_HOST"             = var.MAIL_SERVICE_HOST
+    "MAIL_SERVICE_PORT"             = var.MAIL_SERVICE_PORT
+    "MAIL_SERVICE_SENDER_ADDRESS"   = var.MAIL_SERVICE_SENDER_ADDRESS
+    "MAIL_SERVICE_RECEIVER_ADDRESS" = var.MAIL_SERVICE_RECEIVER_ADDRESS
+    "MAIL_SERVICE_TOKEN_EXPIRY"     = var.MAIL_SERVICE_TOKEN_EXPIRY
+    "PROJECT" = var.project_name
+  }
+
+  secret_environment_variables {
+    key     = "MAIL_SERVICE_CLIENT_ID"
+    secret  = var.MAIL_SERVICE_CLIENT_ID
+    version = "latest"
+  }
+
+  secret_environment_variables {
+    key     = "MAIL_SERVICE_CLIENT_SECRET"
+    secret  = var.MAIL_SERVICE_CLIENT_SECRET
+    version = "latest"
+  }
+
+  secret_environment_variables {
+    key     = "MAIL_SERVICE_ACCESS_TOKEN"
+    secret  = var.MAIL_SERVICE_ACCESS_TOKEN
+    version = "latest"
+  }
+
+  secret_environment_variables {
+    key     = "MAIL_SERVICE_REFRESH_TOKEN"
+    secret  = var.MAIL_SERVICE_REFRESH_TOKEN
+    version = "latest"
   }
 }
 
