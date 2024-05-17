@@ -28,7 +28,7 @@ export default function Sidebar() {
     {
       key: randomUUID(),
       text: 'SSS',
-      route: '/',
+      route: '/faq',
     },
     {
       key: randomUUID(),

@@ -2,7 +2,6 @@ const functions = require('@google-cloud/functions-framework')
 const nodemailer = require('nodemailer')
 const z = require('zod')
 
-
 const globalLogFields = {};
 let transporter;
 let reqBodySchema = z.object({
