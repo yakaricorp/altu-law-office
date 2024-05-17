@@ -6,6 +6,12 @@
   --sidebar-width: 340px;
 }
 
+body.mobile-visible {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
 .jtron {
   background-size: cover;
   background-position: center;
@@ -52,7 +58,6 @@
 
   #page-content {
     margin-left: 0;
-    width: 100vw;
   }
 
   .mobile-visible aside#sidebar {
@@ -109,4 +114,8 @@
   border-top: 20px solid black;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
+}
+
+.accordion-item .accordion-item--paragraph {
+  --animate-duration: 400ms;
 }
