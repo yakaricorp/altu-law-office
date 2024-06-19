@@ -1,22 +1,24 @@
 import '../globals.css'
-import Sidebar from '@/ui/components/sidebar'
+
+import { languages } from 'app/i18n/settings'
 
 import type { ReactNode } from 'react'
 import type { Metadata } from "next"
-import { font_mukta } from '@/ui/fonts'
-import Footer from '@/ui/components/footer'
+
+import { font_mukta } from 'app/ui/fonts'
+import Sidebar from 'app/ui/components/sidebar'
+import Footer from 'app/ui/components/footer'
 
 export const metadata: Metadata = {
   title: 'Altu',
   description: 'Altu Hukuk Burosu',
 }
 
-export default function RootLayout({
-  children,
-}: {
+type Props = {
   children: ReactNode
-}) {
-  const HTML_LANG = 'tr'
+}
+export default function RootLayout({ children }: Props) {
+  const [HTML_LANG] = languages
 
   return (
     <html lang={HTML_LANG}>

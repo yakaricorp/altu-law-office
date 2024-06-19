@@ -65,7 +65,7 @@ resource "google_cloudfunctions_function" "contact_send_message" {
     "MAIL_SERVICE_SENDER_ADDRESS"   = var.MAIL_SERVICE_SENDER_ADDRESS
     "MAIL_SERVICE_RECEIVER_ADDRESS" = var.MAIL_SERVICE_RECEIVER_ADDRESS
     "MAIL_SERVICE_TOKEN_EXPIRY"     = var.MAIL_SERVICE_TOKEN_EXPIRY
-    "PROJECT" = var.project_name
+    "PROJECT"                       = var.project_name
   }
 
   secret_environment_variables {

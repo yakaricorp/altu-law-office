@@ -1,17 +1,20 @@
 'use client'
 
 import type { MouseEvent } from "react"
-import { useFormStatus } from "react-dom"
 import classNames from "classnames"
+import { useFormStatus } from "react-dom"
 
 type Props = {
   label: string
   type?: 'submit';
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   className?: string
+  disabled?: boolean
+  disabledLabel?: string;
 }
 
-export default function Button({ label, type, onClick, className }: Props) {
+export default function Button({ label, type, onClick, className, disabled, disabledLabel }: Props) {
+
   const { pending } = useFormStatus()
 
   return (
@@ -26,9 +29,9 @@ export default function Button({ label, type, onClick, className }: Props) {
       style={{ transition: 'background-color .1s linear' }}
       onClick={onClick}
       data-testid="button"
-      disabled={pending}
+      disabled={disabled || pending}
     >
-      { label }
+      { disabled || pending ? disabledLabel || label : label }
     </button>
   )
 }

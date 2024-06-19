@@ -1,5 +1,8 @@
-import GetInTouch from "@/ui/components/homepage/get-in-touch"
+import GetInTouch from "app/ui/components/homepage/get-in-touch"
+import withTranslations from "app/ui/components/hoc/withTranslations/server"
+
+const GetInTouchWithT = withTranslations(GetInTouch)
 
 export default function ContactPage() {
-  return <GetInTouch></GetInTouch>
+  return <GetInTouchWithT></GetInTouchWithT>
 }

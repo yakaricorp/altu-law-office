@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import classNames from 'classnames'
 
-import type { AnimationTargetProps } from '@/lib/definitions'
+import type { AnimationTargetProps } from 'app/lib/definitions'
 
 type Props = {
   image: string;

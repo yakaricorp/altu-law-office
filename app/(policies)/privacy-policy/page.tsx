@@ -1,18 +1,8 @@
 /* eslint react/no-unescaped-entities: 0 */
 
 import classNames from "classnames"
-import Link from "next/link"
 
-import { font_mukta, font_playfair } from "@/ui/fonts"
-import TurnBackArrovSvg from '@/ui/icons/turn-back-arrow.svg'
-
-function GoBack() {
-  return (
-    <Link href="/" className="hover:bg-alternate p-4">
-      <TurnBackArrovSvg className="w-8 inline"></TurnBackArrovSvg>
-    </Link>
-  )
-}
+import { font_playfair } from "app/ui/fonts"
 
 export default function Page() {
   const h1ClassNames = classNames([font_playfair.className, 'text-center font-bold text-4xl my-8'])
@@ -22,8 +12,7 @@ export default function Page() {
   const aClassNames = 'text-link-alternate hover:underline'
 
   return (
-    <div className={classNames([font_mukta.className, 'px-[10vw] xl:px-[20%] py-8'])}>
-      <GoBack></GoBack>
+    <>
       <h1 className={h1ClassNames}>
         GİZLİLİK POLİTİKASI
       </h1>
@@ -91,7 +80,7 @@ export default function Page() {
       </p>
       <ul className={ulClassNames}>
         <li>İnternet sitesini bulmak amacı ile kullanılan kelimeler</li>
-        <li>İnternet servisi sağlayıcısının ismi</li>
+        <li>İnternet tarayici uygulamasinin ismi</li>
         <li>IP adresi ve/veya konumu</li>
         <li>Erişim sağlayan bilgisayarın işletim sistemi</li>
       </ul>
@@ -186,8 +175,6 @@ export default function Page() {
       <p className={classNames([pClassNames, 'mb-8'])}>
         İsmet Kaptan Mh. 1367 Sk. No:2 Kat:7 Daire:704 İkbal 2 İş Merkezi Konak/İzmir
       </p>
-
-      <GoBack></GoBack>
-    </div>
+    </>
   )
 }

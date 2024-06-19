@@ -45,6 +45,16 @@ const footerSections = [
         text: 'Privacy Policy',
         src: '/privacy-policy',
       },
+      {
+        key: createId(),
+        text: 'Cookie Policy',
+        src: '/cookie-policy',
+      },
+      {
+        key: createId(),
+        text: 'Terms of use',
+        src: '/terms-of-use',
+      },
     ],
   },
 ]

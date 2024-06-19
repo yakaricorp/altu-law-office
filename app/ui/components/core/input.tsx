@@ -1,14 +1,13 @@
 'use client'
 
 import { useId } from "react"
+import { useFormStatus } from "react-dom"
 import classNames from "classnames"
-import type { InputPropTypes } from "@/lib/definitions"
-
+import type { InputPropTypes } from "app/lib/definitions"
 
 type Props = InputPropTypes<HTMLInputElement> & {
   type: 'text' | 'number' | 'email';
 }
-
 export default function Input({
   name,
   type,
@@ -21,6 +20,7 @@ export default function Input({
   maxLength,
 }: Props) {
   const inputId = useId()
+  const { pending } = useFormStatus()
 
   return (
     <div className={classNames(['border border-gray-var-2 px-4 py-3', className])}>
@@ -31,7 +31,7 @@ export default function Input({
         name={name}
         id={inputId}
         value={value}
-        disabled={disabled}
+        disabled={disabled || pending}
         placeholder={placeholder}
         onChange={onChange}
         maxLength={maxLength}

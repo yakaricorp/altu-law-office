@@ -7,10 +7,10 @@ import {
   OVERLAY_MOUSE_TARGET,
   useJsApiLoader
 } from "@react-google-maps/api"
-import AddressControl from "@/ui/components/map/address-control"
-import GoogleMapsContextProvider from "@/ui/context/google-maps-context"
+import AddressControl from "app/ui/components/map/address-control"
+import GoogleMapsContextProvider from "app/ui/context/google-maps-context"
 
-import { font_playfair, font_mukta } from "@/ui/fonts"
+import { font_playfair, font_mukta } from "app/ui/fonts"
 import classNames from "classnames"
 
 export default function Map() {

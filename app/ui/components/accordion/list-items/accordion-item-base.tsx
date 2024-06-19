@@ -1,6 +1,6 @@
 import { type ReactElement } from "react"
 import classNames from "classnames"
-import { font_playfair } from "@/ui/fonts"
+import { font_playfair } from "app/ui/fonts"
 
 export type Accordion = {
   id: string

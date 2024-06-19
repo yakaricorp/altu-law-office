@@ -1,7 +1,7 @@
 import 'animate.css'
 import { useEffect } from "react"
 
-import type { AnimationTarget } from '@/lib/definitions'
+import type { AnimationTarget } from 'app/lib/definitions'
 
 const INTERSECTION_THRESHOLD = 0.2
 

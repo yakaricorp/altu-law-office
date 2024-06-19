@@ -2,6 +2,11 @@ import { URL } from 'url'
 import assert from 'assert'
 import path from 'path'
 
+import {
+  ISenderServiceBuilder,
+  SenderServiceResponseHandler,
+} from './_base'
+
 type TelegramMessageRequestBody = {
   chat_id: string;
   text: string;
@@ -13,15 +18,15 @@ type TelegramMessageContent = {
   message: string;
 }
 
-function getHeaders() {
-  return {
-    'Content-Type': 'application/json'
+export class TelegramSender implements ISenderServiceBuilder<
+  TelegramMessageRequestBody,
+  TelegramMessageContent
+> {
+  readonly url: URL
+  readonly body: TelegramMessageRequestBody
+  readonly headers = {
+    'Content-Type': 'application/json',
   }
-}
-
-export default class TelegramSender {
-  url: URL
-  body: TelegramMessageRequestBody
 
   constructor() {
     assert.ok(typeof process.env.TELEGRAM_API_URL === 'string', 'TELEGRAM_API_URL not defined')
@@ -33,7 +38,7 @@ export default class TelegramSender {
     }
   }
 
-  withEndpoint(endpoint: string): TelegramSender {
+  withEndpoint(endpoint?: string): this {
     if (endpoint) {
       assert.ok(typeof process.env.TELEGRAM_API_TOKEN === 'string', 'TELEGRAM_API_TOKEN not defined')
       const botToken = `bot${process.env.TELEGRAM_API_TOKEN}`
@@ -42,7 +47,7 @@ export default class TelegramSender {
     return this
   }
 
-  withContent(content: TelegramMessageContent): TelegramSender {
+  withContent(content: TelegramMessageContent): this {
     this.body.text = [
       `Name: ${content.name}`,
       `Contact: ${content.email}`,
@@ -51,11 +56,13 @@ export default class TelegramSender {
     return this
   }
 
-  build(): Promise<any> {
+  build(): Promise<Response> {
     return fetch(this.url, {
       method: 'POST',
-      headers: getHeaders(),
+      headers: this.headers,
       body: JSON.stringify(this.body)
     })
   }
 }
+
+export class TelegramSenderResponseHandler extends SenderServiceResponseHandler {}

@@ -3,12 +3,18 @@
 import classNames from 'classnames'
 import Link from 'next/link'
 import StarSvg from '@/ui/icons/star.svg'
-import { font_mukta, font_playfair } from '@/ui/fonts'
+import { font_mukta, font_playfair } from 'app/ui/fonts'
 
-import type { SidebarMenuItem } from '@/lib/definitions'
+import type { SidebarMenuItem } from 'app/lib/definitions'
+import SidebarContactSection from './contact-section'
+import { languages } from 'app/i18n/settings'
+import { useTranslation } from 'app/i18n/client'
 
-export const render = ({ menuItems }: { menuItems: SidebarMenuItem[] }): JSX.Element => {
+export default function SidebarBase ({ menuItems }: { menuItems: SidebarMenuItem[] }) {
   const ICON_SIZE = 10
+
+  const [lng] = languages
+  const { t } = useTranslation(lng)
 
   return (
     <div className={classNames([
@@ -16,11 +22,15 @@ export const render = ({ menuItems }: { menuItems: SidebarMenuItem[] }): JSX.Ele
       'bg-secondary h-[100%]',
     ])}>
       <div className="px-8 py-12 text-center">
-        <h1 className="text-primary text-6xl mb-2 tracking-wider">ALTU</h1>
+        <h1 className="text-primary text-6xl mb-2 tracking-wider">
+          { t('altu') }
+        </h1>
         <h2 className={classNames([
           font_mukta.className,
           'text-text-primary font-thin text-xl tracking-widest uppercase'
-        ])}>Hukuk Bürosu</h2>
+        ])}>
+          { t('law-office') }
+        </h2>
       </div>
       <div className="px-8">
         <ul className="text-text-primary">
@@ -39,7 +49,7 @@ export const render = ({ menuItems }: { menuItems: SidebarMenuItem[] }): JSX.Ele
           }
         </ul>
       </div>
-      {/* <SidebarContactSection /> */}
+      <SidebarContactSection className="mt-24" />
     </div>
   )
 }

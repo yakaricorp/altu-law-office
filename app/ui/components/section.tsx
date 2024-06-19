@@ -1,23 +1,26 @@
 import type { ReactNode } from 'react'
 import classNames from 'classnames'
-import { font_mukta, font_playfair } from '@/ui/fonts'
+import { font_mukta, font_playfair } from 'app/ui/fonts'
 
 type Props = {
+  id?: string;
   header?: string
   subHeader?: string
   className?: string
   children?: ReactNode
 }
-
-export default function Section({ header, subHeader, className, children }: Props) {
+export default function Section({ id, header, subHeader, className, children }: Props) {
   return (
-    <section className={
-      classNames([
-        process.env.NEXT_PUBLIC_PAGE_SECTION_CLASSNAME,
-        'px-12',
-        className || '',
-      ])
-    }>
+    <section
+      id={id}
+      className={
+        classNames([
+          process.env.NEXT_PUBLIC_PAGE_SECTION_CLASSNAME,
+          'px-12',
+          className || '',
+        ])
+      }
+    >
       {
         header &&
         <h1 className={classNames([
