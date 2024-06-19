@@ -15,6 +15,8 @@ locals {
             operationId: contactSendMessage
             x-google-backend:
               address: "${google_cloudfunctions_function.contact_send_message.https_trigger_url}"
+            security:
+              - api_key_in_header: []
             consumes:
               - application/json
             produces:
@@ -34,6 +36,11 @@ locals {
                 description: Unauthorized. Check messaging service token validity.
               403:
                 description: Forbidden. Check error message.
+      securityDefinitions:
+        api_key_in_header:
+          type: "apiKey"
+          name: "x-api-key"
+          in: "header"
       definitions:
         Sender:
           properties:
@@ -89,4 +96,8 @@ resource "google_api_gateway_gateway" "api_gw" {
   region     = var.gw_default_region
   gateway_id = "altu-gw"
   api_config = google_api_gateway_api_config.api_cfg.id
+}
+
+output "gw_url" {
+  value = google_api_gateway_gateway.api_gw.default_hostname
 }

@@ -3,56 +3,87 @@
 import { useFormState } from "react-dom";
 import classNames from "classnames"
 
-import Input from "@/ui/components/core/input"
-import Button from "@/ui/components/core/button"
-import TextArea from "@/ui/components/core/textarea"
+import Input from "app/ui/components/core/input"
+import Button from "app/ui/components/core/button"
+import TextArea from "app/ui/components/core/textarea"
 
-import { FormState } from "@/lib/definitions"
-import { actionContactSendMessage } from "@/actions/contact-send-message/index"
+import { FormState, Severity } from "app/lib/definitions"
+import { actionContactSendMessage } from "app/actions/contact-send-message/index"
+import { Translations } from "app/ui/components/hoc/withTranslations/types"
+import withTranslations from "app/ui/components/hoc/withTranslations/client"
+import { useEffect, useRef } from "react";
 
 type Props = {
   className?: string;
-}
-export default function SendMessageForm({ className }: Props) {
+} & Translations
+function SendMessageForm({ className, t }: Props) {
   const [state, formAction] = useFormState<FormState, FormData>(actionContactSendMessage, {
     severity: null,
-    message: '',
+    messages: [],
   })
 
+  const formRef = useRef<HTMLFormElement>(null)
+
   return (
-    <form action={formAction} className={classNames([className])}>
-      <div className={classNames({
-        [`bg-${state.severity}`]: true,
-      })}>
-        { state?.message }
-      </div>
+    <form action={formAction} ref={formRef} className={classNames([className])}>
+          {
+            state?.messages.length ? 
+              <div className={classNames('py-4 px-2', {
+                'bg-alert-info': state.severity === Severity.INFO,
+                'bg-alert-error-low': state.severity === Severity.ERROR_LOW,
+                'bg-alert-error-high': state.severity === Severity.ERROR_HIGH
+              })}>
+                <ul className="text-bold list-disc ps-6">
+                  {
+                    state?.messages.map((msgKey) => (
+                      <li
+                        className="mb-2 last:mb-0"
+                        key={msgKey}
+                      >
+                        { t(`contact-form.${msgKey}`) }
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            : ''
+          }
       <div className="flex xs:flex-wrap gap-4 mt-4">
         <Input
           name="name"
           className="flex-1 xs:min-w-[120px]"
-          placeholder="Name"
+          placeholder={t('contact-form.name.label')}
           type="text"
-          disabled={false}
+          minLength={3}
+          maxLength={80}
         ></Input>
         <Input
           name="email"
           className="flex-1 xs:min-w-[120px]"
-          placeholder="Email"
+          placeholder={t('contact-form.email.label')}
           type="email"
-          disabled={false}
+          maxLength={300}
         ></Input>
       </div>
       <div className="my-4">
         <TextArea
           name="message"
-          placeholder="Message"
+          placeholder={t('contact-form.message.label')}
           rows={5}
+          minLength={50}
           maxLength={300}
         ></TextArea>
       </div>
       <div className="text-right xs:text-center">
-        <Button type="submit" label="Send" className="px-20 xs:w-full"></Button>
+        <Button
+          type="submit"
+          label={t('send')}
+          disabledLabel={t('sending')}
+          className="px-20 xs:w-full"
+        ></Button>
       </div>
     </form>
   )
 }
+
+export default withTranslations(SendMessageForm)

@@ -1,8 +1,11 @@
-import classNames from 'classnames';
+import classNames from 'classnames'
+import { ReactNode } from 'react'
+
 import PhoneSvg from '@/ui/icons/phone.svg'
 import MailSvg from '@/ui/icons/mail.svg'
-import { font_mukta } from '@/ui/fonts';
-import { ReactNode } from 'react'
+import { font_mukta } from 'app/ui/fonts'
+import { languages } from 'app/i18n/settings'
+import { useTranslation } from 'app/i18n/client'
 
 type ContactSectionItemProps = {
   icon: ReactNode,
@@ -32,30 +35,37 @@ function ContactSectionItem({ icon, text, hoverText, textClasses }: ContactSecti
   )
 }
 
-export default function SidebarContactSection() {
+type Props = {
+  className?: string;
+}
+export default function SidebarContactSection({ className }: Props) {
+  const [lng] = languages
+  const { t } = useTranslation(lng)
+
   return (
-  <ul className={classNames([
-    font_mukta.className,
-    'font-semibold mt-12'
-  ])}>
-    <ContactSectionItem
-      icon={<PhoneSvg/>}
-      text={'Av. Mehmet Aldemir'}
-      textClasses="text-xl"
-      hoverText="Mesaj Gonder"
-    />
-    <ContactSectionItem
-      icon={<PhoneSvg/>}
-      text={'Av. Asil Tuna'}
-      textClasses="text-xl"
-      hoverText="Mesaj Gonder"
-    />
-    <ContactSectionItem
-      icon={<MailSvg/>}
-      text={'altuhukuk@gmail.com'}
-      textClasses="text-xs"
-      hoverText="E-Mail Yolla"
-    />
-  </ul>
+    <ul className={classNames([
+      font_mukta.className,
+      'font-semibold',
+      className,
+    ])}>
+      <ContactSectionItem
+        icon={<PhoneSvg/>}
+        text={t('attorney-name', { firstname: 'Mehmet', lastname: 'ALDEMİR' })}
+        textClasses="text-xl"
+        hoverText={t('contact')}
+      />
+      <ContactSectionItem
+        icon={<PhoneSvg/>}
+        text={t('attorney-name', { firstname: 'Asil', lastname: 'TUNA' })}
+        textClasses="text-xl"
+        hoverText={t('contact')}
+      />
+      <ContactSectionItem
+        icon={<MailSvg/>}
+        text={'altuhukuk@gmail.com'}
+        textClasses="text-xs"
+        hoverText={t('send-email')}
+      />
+    </ul>
   )
 }

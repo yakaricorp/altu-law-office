@@ -1,8 +1,8 @@
 'use client'
 
-import * as sidebarBase from './sidebar-base'
+import SidebarBase from './sidebar-base'
 import ShowHideButton from './show-hide-button'
-import type { SidebarMenuItem } from '@/lib/definitions'
+import type { SidebarMenuItem } from 'app/lib/definitions'
 
 type Props = {
   menuItems: SidebarMenuItem[]
@@ -13,7 +13,7 @@ export default function SidebarDesktop({
 
   return (
     <aside id="sidebar" className="fixed h-screen z-2">
-      { sidebarBase.render({ menuItems }) }
+      { SidebarBase({ menuItems }) }
       <ShowHideButton
         className="fixed top-[16px] left-[calc(100%+16px)] z-10 md:hidden"
       />

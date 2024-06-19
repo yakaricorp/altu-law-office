@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { createPortal } from "react-dom"
 import ExternalLinkSvg from "@/ui/icons/external-link.svg"
-import { useGoogleMapsContext } from "@/ui/context/google-maps-context"
+import { useGoogleMapsContext } from "app/ui/context/google-maps-context"
 
 export default function AddressControl(
   {

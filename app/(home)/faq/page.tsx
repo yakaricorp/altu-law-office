@@ -1,5 +1,5 @@
-import Section from "@/ui/components/section"
-import AccordionList from "@/ui/components/accordion"
+import Section from "app/ui/components/section"
+import AccordionList from "app/ui/components/accordion"
 
 
 const items = [{

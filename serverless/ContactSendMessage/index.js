@@ -5,26 +5,27 @@ const z = require('zod')
 const globalLogFields = {};
 let transporter;
 let reqBodySchema = z.object({
-  name: z.string().trim().min(4),
-  email: z.string().trim().email(),
-  message: z.string().trim().min(50),
+  name: z.string().trim().min(3).max(80),
+  email: z.string().trim().email().max(300),
+  message: z.string().trim().min(50).max(300),
 }).strict();
 
 functions.http('handler', async (req, res) => {
   if (typeof req !== 'undefined') {
-    const traceHeader = req.header('X-Cloud-Trace-Context');
+    const traceHeader = req.header('X-Cloud-Trace-Context')
     if (traceHeader) {
       const [trace] = traceHeader.split('/');
       globalLogFields['logging.googleapis.com/trace'] =
-        `projects/${process.env.PROJECT}/traces/${trace}`;
+        `projects/${process.env.PROJECT}/traces/${trace}`
     }
   }
 
   const validatedBody = reqBodySchema.safeParse(req.body)
+
   if (!validatedBody.success) {
-    res.status(400).json({
-      messages: validatedBody.error.issues.map((issue => 
-        `${issue.path.join('.')}: ${issue.message}`
+    return res.status(400).json({
+      messages: validatedBody.error.issues.map((issue =>
+        `${issue.path[0]}.${issue.code}`
       ))
     })
   }
@@ -57,16 +58,11 @@ functions.http('handler', async (req, res) => {
     console.log(JSON.stringify({
       severity: 'ERROR',
       message: ex.message,
-      // Log viewer accesses 'component' as 'jsonPayload.component'.
       component: 'contact-send-message',
       ...globalLogFields
     }));
-    return res.status(403).json({
-      messages: ["Error occured while sending an the message."]
-    })
+    return res.status(403).json({ messages: [] })
   }
 
-  return res.status(200).json({
-    messages: ["Message has been sent."]
-  })
+  return res.status(200).json({ messages: [] })
 });

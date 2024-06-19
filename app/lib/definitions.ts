@@ -12,6 +12,13 @@ export interface SidebarMenuItem {
   route: string;
 }
 
+export interface TeamMember {
+  imageUri: string;
+  fullname: string;
+  jobTitle: string;
+  description: string;
+}
+
 export type InputPropTypes<T> = {
   name: string;
   value?: string;
@@ -21,11 +28,12 @@ export type InputPropTypes<T> = {
   placeholder?: string;
   className?: string;
   maxLength?: number;
+  minLength?: number;
 }
 
 export type FormState = {
   severity: Severity | null;
-  message: string
+  messages: string[]
 }
 
 export type AnimationTarget = 'header' | 'subheader' | 'tile' | 'card'

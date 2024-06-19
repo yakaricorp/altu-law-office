@@ -2,7 +2,8 @@
 
 import { useId } from "react"
 import classNames from "classnames"
-import type { InputPropTypes } from "@/lib/definitions"
+import type { InputPropTypes } from "app/lib/definitions"
+import { useFormStatus } from "react-dom"
 
 type Props = InputPropTypes<HTMLTextAreaElement> & {
   rows: number;
@@ -20,8 +21,10 @@ export default function TextArea({
   placeholder,
   className,
   maxLength,
+  minLength,
 }: Props) {
   const inputId = useId()
+  const { pending } = useFormStatus()
 
   return (
     <div className={classNames(['border border-gray-var-2 px-4 py-3', className])}>
@@ -31,12 +34,13 @@ export default function TextArea({
         id={inputId}
         name={name}
         value={value}
-        disabled={disabled}
+        disabled={disabled || pending}
         placeholder={placeholder}
         onChange={onChange}
         rows={rows}
         cols={cols}
         maxLength={maxLength}
+        minLength={minLength}
       />
     </div>
   )

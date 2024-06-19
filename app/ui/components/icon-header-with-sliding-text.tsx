@@ -3,15 +3,17 @@
 import 'animate.css'
 import classNames from 'classnames'
 import { useState } from "react";
-import { font_playfair } from '@/ui/fonts'
+import { font_playfair } from 'app/ui/fonts'
 import BriefcaseSvg from '@/ui/icons/briefcase.svg'
 
-import type { AnimationTargetProps } from '@/lib/definitions'
+import type { AnimationTargetProps } from 'app/lib/definitions'
 
 type Props = {
   className?: string;
+  title: string;
+  description: string;
 } & AnimationTargetProps
-export default function IconHeaderWithSlidingText({ className, animationTarget }: Props) {
+export default function IconHeaderWithSlidingText({ title, description, className, animationTarget }: Props) {
 
   const [imageClasses, setImageClasses] = useState<string[]>([])
   const [headerClasses, setHeaderClasses] = useState<string[]>([])
@@ -53,13 +55,13 @@ export default function IconHeaderWithSlidingText({ className, animationTarget }
             'transition-all text-2xl my-3',
             headerClasses.join(' ')
           ])}>
-            Business Law
+            { title }
           </h4>
           <p className={classNames([
             'transition-all -mb-12 opacity-0',
             paragraphClasses.join(' '),
           ])}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima pariatur ex, quae corporis sequi.
+            { description }
           </p>
         </div>
       </div>

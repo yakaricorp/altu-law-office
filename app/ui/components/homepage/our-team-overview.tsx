@@ -1,7 +1,10 @@
 import classNames from "classnames"
 import Image from "next/image"
-import Button from "@/ui/components/core/button"
-import { font_playfair } from "@/ui/fonts"
+
+import Button from "app/ui/components/core/button"
+import { font_playfair } from "app/ui/fonts"
+import { TeamMember } from "app/lib/definitions"
+import Link from "next/link"
 
 type ItemProps = {
   className?: string
@@ -36,34 +39,36 @@ export function TeamMemberItem({
         { description }
       </div>
       <div className="py-6 flex xs:flex-wrap text-center gap-2">
-        <Button className="flex-1 xs:flex-0" label="View background"></Button>
-        <Button className="flex-1 xs:flex-0" label="Send a message"></Button>
+        <Link href="/contact/mehmet-aldemir" className="flex-1 xs:flex-0">
+          <Button className="w-full" label="View background"></Button>
+        </Link>
+        <Link href="/contact/mehmet-aldemir" className="flex-1 xs:flex-0">
+          <Button className="w-full" label="Send a message"></Button>
+        </Link>
       </div>
     </li>
   )
 }
 
-export default function OurTeamOverview() {
-  const attorneys = [
-    {
-      imageUri: '/attorney-2.JPG',
-      fullname: 'Av. Mehmet Aldemir',
-      jobTitle: 'Founder',
-      description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum, expedita. Explicabo omnis odio illum molestias dolor magni tempora eius iste maiores commodi nesciunt, facilis sunt consectetur nam autem, quasi quo.',
-    },
-    {
-      imageUri: '/attorney-1.jpeg',
-      fullname: 'Av. Asil Tuna',
-      jobTitle: 'Founder',
-      description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum, expedita. Explicabo omnis odio illum molestias dolor magni tempora eius iste maiores commodi nesciunt, facilis sunt consectetur nam autem, quasi quo.',
-    }
-  ]
-
+type Props = {
+  className?: string;
+  hideHeader?: boolean;
+  attorneys: TeamMember[]
+}
+export default function OurTeamOverview({
+  className,
+  hideHeader,
+  attorneys,
+}: Props) {
   return (
-    <div>
-      <h4 className={classNames([font_playfair.className, 'uppercase text-center text-4xl font-bold py-24'])}>
-        <span className="text-primary">Meet</span> our <span className="text-primary">attorneys</span>
-      </h4>
+    <div className={className}>
+      {
+        !hideHeader ?
+          <h4 className={classNames([font_playfair.className, 'uppercase text-center text-4xl font-bold py-24'])}>
+            <span className="text-primary">Meet</span> our <span className="text-primary">attorneys</span>
+          </h4>
+        : ''
+      }
       <ul className="flex md-w-sidebar:block justify-center py-12 pt-0">
         {
           attorneys.map(attorney => (

@@ -1,0 +1,147 @@
+{
+  "altu": "ALTU",
+  "law-office": "Hukuk Bürosu",
+  "contact": "İletişime Geç",
+  "about-us": "Hakkımızda",
+  "why-choose-us": "Neden bizi seçmelisiniz?",
+  "why-us": "Neden biz?",
+  "homepage": "Anasayfa",
+  "services": "Hizmetler",
+  "cases": "Davalar",
+  "faq": "SSS",
+  "attorney-name": "Av. {{firstname}} {{lastname}}",
+  "send-email": "E-Posta Yolla",
+  "send": "Gönder",
+  "sending": "Gönderiliyor",
+  "attorney-entities": {
+    "asil-tuna": {
+      "fullname": "Asil TUNA",
+      "possessive": "Asil TUNA`ya"
+    },
+    "mehmet-aldemir": {
+      "fullname": "Mehmet ALDEMİR",
+      "possessive": "Mehmet ALDEMİR`e"
+    }
+  },
+  "jumbotron-items": [
+    {
+      "title": "Güçlü Hukuki Çözümler",
+      "description": "İhtiyaçlarınıza en uygun çözümleri sunarak, haklarınızı korumak için çalışıyoruz.",
+      "button": "Kadromuz"
+    },
+    {
+      "title": "Müşteri Odaklı Yaklaşım",
+      "description": "Size özel hukuki danışmanlık hizmetleri sunarak, her adımda sizi bilgilendiriyor ve süreç boyunca yanınızda oluyoruz.",
+      "button": "Danışmanlık Süreci"
+    },
+    {
+      "title": "Başarı Odaklı Stratejiler",
+      "description": "Hukuki süreçlerde başarıyı hedefleyen stratejilerimizle, davalarınızda en iyi sonuçları elde etmenizi sağlıyoruz.",
+      "button": "Çalışma Alanlarımız"
+    }
+  ],
+  "case-type-tiles": {
+    "header": "Faaliyet Alanları",
+    "subheader": "Hizmetler",
+    "categories": [
+      "Aile Hukuku",
+      "Ceza Hukuku",
+      "Gayrimenkul ve İnşaat Hukuku",
+      "Ticaret Hukuku"
+    ]
+  },
+  "service-type-tiles": {
+    "header": "Faaliyet Alanları",
+    "subheader": "Davalar",
+    "services": [
+      {
+        "name": "Boşanma",
+        "description": "Evlilik birliğinin sona erdirilmesi için mahkemeye başvuru yapılmasıdır."
+      },
+      {
+        "name": "Velayet ve nafaka",
+        "description": "Çocukların velayetinin belirlenmesi ve çocuklarla ilgili maddi sorumlulukların ve bakımları için ödenen nafaka miktarının belirlenmesini içerir."
+      },
+      {
+        "name": "Mal paylaşımı",
+        "description": "Boşanma durumunda, çiftler arasında evlilik süresince biriktirilen varlıkların ve borçların paylaşılması için açılan davalardır."
+      },
+      {
+        "name": "Suç savunması",
+        "description": "Kişinin suçlanması durumunda, kendisini suçlamalardan temizlemek veya cezasını azaltmak için mahkemeye başvurmasıdır."
+      },
+      {
+        "name": "Temyiz",
+        "description": "Temyiz davaları, bir alt mahkeme veya yargı organının kararını inceleyen ve gerekirse değiştiren veya bozan üst mahkemeye yapılan başvuruları içerir."
+      },
+      {
+        "name": "İcra ve iflas",
+        "description": "Alacaklıların borçlulara karşı alacaklarını tahsil etmek için mahkemeye başvurmasıdır."
+      },
+      {
+        "name": "Kiracı ve kiralayan arası ihtilaflar",
+        "description": "Kiralık mülklerle ilgili kiracılar ve kiralayanlar arasında ortaya çıkan anlaşmazlıkları çözmek için açılan davalardır."
+      },
+      {
+        "name": "Tapu ve mülkiyet",
+        "description": "Tapu ve mülkiyet davaları, mülk sahipliği hakları ve mülkiyetin devri gibi konuları ele alır."
+      }
+    ]
+  },
+  "need-legal-help": {
+    "title": "Hukuk danışmanlığına mı ihtiyacınız var? Avukatlarımızla iletişime geçin.",
+    "paragraphs": [
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor saepe recusandae aliquam dolores, maxime quasi dolore enim accusamus et illo reprehenderit modi natus iusto odit quibusdam, voluptatem non facilis. Reprehenderit!",
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor saepe recusandae aliquam dolores, maxime quasi dolore enim accusamus et illo reprehenderit modi natus iusto odit quibusdam, voluptatem non facilis. Reprehenderit!"
+    ]
+  },
+  "consultancy-how-to": {
+    "title": "Danışmanlık adımları",
+    "description": "Mevcut durumunuza uygun hukuk danışmanlığını en kolay yoldan sağlayabilmemiz için şu adımları izleyebilirsiniz:",
+    "steps": [
+      {
+        "title": "Ofise gelin",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+      },
+      {
+        "title": "Konuşalım",
+        "description": "Cumque assumenda autem, quidem inventore ad, consequuntur ullam distinctio dignissimos voluptatibus accusantium sit repellat?"
+      },
+      {
+        "title": "Anlaşalım",
+        "description": "Harum, ea maxime fugiat totam placeat deserunt ad!"
+      }
+    ]
+  },
+  "meet-our-team": {
+    "header": "Kadromuz",
+    "subheader": "Takım ile tanışın"
+  },
+  "get-in-touch": {
+    "header": "Bize ulaşın",
+    "subheader": "İletişime geç"
+  },
+  "contact-form": {
+    "header": "Sormaktan çekinmeyin.",
+    "subheader": "Hukuki konular ve durumlar bazen çok karmaşık olabilir. Sorununuz daha da büyümeden bize ulaşın, size hızlı bir şekilde yardımcı olalım.",
+    "send-message-to": "{{name}} mesaj gönder:",
+    "success": "Mesajınız iletildi. Ekibimiz size 1-3 iş günü içerisinde geri dönüş sağlayacaktır.",
+    "server-error": "Sunucu kaynaklı bir hata oluştu. Lütfen tekrar göndermeyi deneyin.",
+    "auth-error": "Mesajınız iletilirken sunucu kaynaklı bir problem oluştu. Lütfen tekrar göndermeyi deneyin.",
+    "name": {
+      "label": "İsminiz",
+      "too_small": "Lütfen geçerli bir isim girin.",
+      "too_big": "İsminiz çok uzun. Lütfen 80 karakteri geçmeyecek şekilde düzenleyin."
+    },
+    "email": {
+      "label": "E-Posta Adresiniz",
+      "invalid_string": "Lütfen geçerli bir e-posta adresi girin.",
+      "too_big": "Lütfen geçerli bir e-posta adresi girin."
+    },
+    "message": {
+      "label": "Lütfen görüşmek istediğiniz konuyu özetleyen bir metin girin.",
+      "too_small": "Göndermek istediğiniz mesaj oldukça kısa. Lütfen en az 50 karakterden oluşacak şekilde detaylandırın.",
+      "too_big": "Göndermek istediğiniz mesaj uzunluğu çok fazla. Lütfen 300 karakteri aşmayın."
+    }
+  }
+}

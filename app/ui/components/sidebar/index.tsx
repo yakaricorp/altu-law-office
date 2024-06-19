@@ -1,38 +1,43 @@
-import SidebarDesktop from '@/ui/components/sidebar/sidebar-desktop'
-import type { SidebarMenuItem } from '@/lib/definitions'
-
 import { randomUUID } from 'crypto'
 
-export default function Sidebar() {
+import SidebarDesktop from 'app/ui/components/sidebar/sidebar-desktop'
+import type { SidebarMenuItem } from 'app/lib/definitions'
+import { languages } from "app/i18n/settings"
+import { useTranslation } from "app/i18n"
+
+export default async function Sidebar() {
+  const [lng] = languages
+  const { t } = await useTranslation(lng)
+
   const navMenuItems: SidebarMenuItem[] = [
     {
       key: randomUUID(),
-      text: 'Anasayfa',
+      text: t('homepage'),
       route: '/',
     },
     {
       key: randomUUID(),
-      text: 'Hakkında',
+      text: t('why-us'),
       route: '/about',
     },
     {
       key: randomUUID(),
-      text: 'Hizmetler',
+      text: t('services'),
+      route: '/services',
+    },
+    {
+      key: randomUUID(),
+      text: t('cases'),
       route: '/',
     },
     {
       key: randomUUID(),
-      text: 'Davalar',
-      route: '/',
-    },
-    {
-      key: randomUUID(),
-      text: 'SSS',
+      text: t('faq'),
       route: '/faq',
     },
     {
       key: randomUUID(),
-      text: 'İletişim',
+      text: t('contact'),
       route: '/contact',
     },
   ]

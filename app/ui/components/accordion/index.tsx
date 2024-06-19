@@ -28,7 +28,6 @@ const renderItem = (
           setExpanded={props.setExpanded}
         />
       )
-      break;
     default:
       throw new TypeError("Invalid accordion list item type: " + kind)
   }

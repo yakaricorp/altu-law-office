@@ -33,9 +33,9 @@ module.exports = {
       'gray-var-1': 'rgba(255, 255, 255, 0.1)',
       'gray-var-2': 'rgba(0, 0, 0, 0.1)',
       'link-alternate': '#619DE5',
-      'severity-info': 'lightblue',
-      'severity-error-low': 'green',
-      'severity-error-high': 'red'
+      'alert-info': '#CEF4FC',
+      'alert-error-low': '#FFF2CD',
+      'alert-error-high': '#F8D7D9'
     },
     screens: {
       ...defaultTheme.screens,

@@ -1,25 +1,33 @@
 import classNames from "classnames"
-import { font_playfair } from "@/ui/fonts"
-import Button from "@/ui/components/core/button"
-import { IconTitleDescriptionList } from "@/ui/components/icon-title-desctiption"
+import { v4 as createId } from "uuid"
+import { useMemo } from "react"
 
-// icons
-import MailSvg from "@/ui/icons/mail.svg"
-import ClipboardDocumentSvg from "@/ui/icons/clipboard-document.svg"
+import { font_playfair } from "app/ui/fonts"
+import Button from "app/ui/components/core/button"
+import { IconTitleDescriptionList, iconNumberOrderRenderer } from "app/ui/components/icon-title-desctiption"
+
+import { languages } from "app/i18n/settings"
+import { useTranslation } from "app/i18n/client"
+
+type ConsultancyStepTranslation = {
+  title: string
+  description: string
+}
 
 export default function ContactAboutUs() {
-  const iconTitleDescItems = [
-    {
-      icon: <MailSvg/>,
-      title: 'Hello',
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
-    },
-    {
-      icon: <ClipboardDocumentSvg/>,
-      title: 'World',
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
-    },
-  ]
+  const [lng] = languages
+  const { t } = useTranslation(lng)
+
+  const paragraphs = t('need-legal-help.paragraphs') as unknown as string[]
+  const items = useMemo(() => {
+    const translations = t('consultancy-how-to.steps') as unknown as ConsultancyStepTranslation[]
+    return translations.map((item, i) => ({
+      id: createId(),
+      IconComponent: iconNumberOrderRenderer(i + 1),
+      title: item.title,
+      description: item.description,
+    }))
+  }, [])
 
   return (
     <div className="flex md-w-sidebar:block">
@@ -28,15 +36,18 @@ export default function ContactAboutUs() {
           'text-3xl mb-12 text-primary',
           font_playfair.className,
         ])}>
-          Need legal help? Keep in touch with our lawyers.
+          { t('need-legal-help.title') }
         </h6>
-
-        <p className="mb-12">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor saepe recusandae aliquam dolores, maxime quasi dolore enim accusamus et illo reprehenderit modi natus iusto odit quibusdam, voluptatem non facilis. Reprehenderit!
-        </p>
+        {
+          paragraphs.map((pText, key) => (
+            <p className="mb-12" key={key}>
+              { pText }
+            </p>
+          ))
+        }
 
         <div className="text-right">
-          <Button label="Contact"></Button>
+          <Button label={t('contact')}></Button>
         </div>
       </div>
       <div className="bg-alternate flex-1 px-12 py-32">
@@ -44,14 +55,14 @@ export default function ContactAboutUs() {
           'text-3xl mb-6',
           font_playfair.className,
         ])}>
-          Why choose us?
+          { t('consultancy-how-to.title') }
         </h6>
 
         <p className={classNames([font_playfair.className])}>
-          We always give you the best benefit of trusting us and winning
+          { t('consultancy-how-to.description') }
         </p>
 
-        <IconTitleDescriptionList items={iconTitleDescItems} />
+        <IconTitleDescriptionList items={items} />
       </div>
     </div>
   )
