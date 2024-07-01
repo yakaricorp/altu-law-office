@@ -11,9 +11,10 @@ const contactIdMap = Object.freeze({
   'mehmet-aldemir': true,
 })
 
+type ContactId = 'asil-tuna' | 'mehmet-aldemir'
 type Props = {
   params: {
-    contactId: 'asil-tuna' | 'mehmet-aldemir'
+    contactId: ContactId
   }
 } & Translations
 function SendMessage({ t, params }: Props) {
